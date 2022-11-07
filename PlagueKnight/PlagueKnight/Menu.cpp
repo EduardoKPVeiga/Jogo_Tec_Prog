@@ -1,14 +1,14 @@
 #include "Menu.h"
 
 Menu::Menu() {
-    opcoes_str.push_back("Level A");
-    opcoes_str.push_back("Level B");
-    opcoes_str.push_back("Leaderboard");
+    options_str.push_back("Level A");
+    options_str.push_back("Level B");
+    options_str.push_back("Leaderboard");
 }
 
 Menu::~Menu() { }
 
-/*
+
 void Menu::select_options(Options* option, sf::RenderWindow* window) {
     sf::Font font;
 
@@ -35,5 +35,5 @@ void Menu::select_options(Options* option, sf::RenderWindow* window) {
         *option = Options::LEVEL;
     }
 }
-*/
+
 

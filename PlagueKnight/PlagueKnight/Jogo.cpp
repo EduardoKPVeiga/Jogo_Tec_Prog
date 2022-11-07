@@ -1,7 +1,7 @@
 #include "Jogo.h"
 
 Jogo::Jogo() :
-    window(sf::VideoMode(1100, 720), "Swamp Bros", sf::Style::Close)
+    window(sf::VideoMode(1100, 720), "Plague Knight", sf::Style::Close)
 {
 //    opcao = Opcao::MENU;
 //    player.setWindow(&window);

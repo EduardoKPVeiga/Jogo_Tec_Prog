@@ -4,7 +4,7 @@
 
 #include "Ente.h"
 
-class Entidade: Ente {
+class Entidade : public Ente {
 private:
 
 protected:
@@ -15,8 +15,10 @@ protected:
 	sf::RenderWindow* window;
 
 public:
+	Entidade();
+	~Entidade();
 	void setWindow(sf::RenderWindow* window) { this->window = window; }
-	void imprimir() { window->draw(body); }
+	void draw() { window->draw(body); }
 	float getBodySize() { return body.getSize().x; }
 	void setBodyPosition(float x, float y) { this->body.setPosition(x, y); }
 	sf::FloatRect getBodyGlobalBounds() { return this->body.getGlobalBounds(); }

@@ -3,18 +3,21 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 
-//#include "Level.h"
+#include "Fase.h"
 #include "Menu.h"
-//#include "Player.h"
-//#include "Options.h"
+#include "Jogador.h"
+#include "Options.h"
+
+using namespace Fases;
+using namespace Jogadores;
 
 class Jogo {
 private:
-//    Options option;
+    Options option;
     Menu menu;
     sf::RenderWindow window;
-//    Player player;
-//    Level* level = new Level(&player, &window);
+    Jogador jogador;
+    Fase* fase = new Fase(&jogador, &window);
 public:
     Jogo();
     ~Jogo();
