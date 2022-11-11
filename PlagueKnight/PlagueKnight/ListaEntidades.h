@@ -9,6 +9,7 @@ class ListaEntidades {
 public:
 	ListaEntidades();
 	~ListaEntidades();
+	Lista<Entidade> LEs;
 	Lista<Inimigo> LIs;
 	void drawEntities(sf::RenderWindow* window);
 	void moveEntities();

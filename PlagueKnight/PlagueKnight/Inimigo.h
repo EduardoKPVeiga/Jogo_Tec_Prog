@@ -11,7 +11,7 @@ namespace Inimigos {
 
     public:
         Inimigo();
-        Inimigo(float x, float y, sf::RenderWindow* window);
+        Inimigo(float x_inicial, float y_inicial, const char* caminho_textura, float largura, float comprimento, int num_v = 1, bool pulando = 0, float fSpeed = 0 /*, sf::RenderWindow* window*/);
         ~Inimigo();
         void move();
         void setFlyingSpeed(float s);

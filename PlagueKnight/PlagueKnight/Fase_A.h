@@ -3,7 +3,10 @@
 
 using namespace Fases;
 
-class Fase_A :public Fase {
-
+class Fase_A : public Fase {
+public:
+	Fase_A();
+	~Fase_A();
+	void inicializeElementos();
 };
 

@@ -3,14 +3,16 @@
 namespace Inimigos {
     Inimigo::Inimigo()
     {
-        //body.setFillColor(sf::Color::Red);
-        body.setPosition(0.f, 0.f);
-    }
-    Inimigo::Inimigo(float x, float y, sf::RenderWindow* w)
-    {
         body.setFillColor(sf::Color::Red);
-        body.setPosition(x, y);
-        this->window = w;
+        body.setPosition(0.f, 0.f); // ?
+    }
+    Inimigo::Inimigo(float x_inicial, float y_inicial, const char* caminho_textura, float largura, float comprimento, int num_v = 1, bool pulando = 0, float fSpeed = 0 /*, sf::RenderWindow* w*/) :
+        Personagem(x_inicial, y_inicial, caminho_textura, largura, comprimento, num_v) {
+        body.setFillColor(sf::Color::Red);
+        estah_pulando = pulando;
+        flyingSpeed = fSpeed;
+        body.setPosition(x, y); // ?
+        //this->window = w;
     }
 
     Inimigo::~Inimigo()

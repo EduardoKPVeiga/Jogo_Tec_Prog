@@ -2,7 +2,11 @@
 
 namespace Jogadores {
     Jogador::Jogador() {
-        num_vidas = 3;
+        body.setFillColor(sf::Color::Blue);
+    }
+
+    Jogador::Jogador(float x_inicial, float y_inicial, const char* caminho_textura, float largura, float comprimento, int num_v) :
+        Personagem(x_inicial, y_inicial, caminho_textura, largura, comprimento, num_v) {
         body.setFillColor(sf::Color::Blue);
     }
 

@@ -16,7 +16,7 @@ using namespace Inimigos;
 
 namespace Fases {
 	class Fase : Ente {
-	private:
+	protected:
 		Gerenciador_Colisoes cm;
 		ListaEntidades* listaEntidades;
 		Lista<Inimigo> ListEnemies;
@@ -30,7 +30,7 @@ namespace Fases {
 		~Fase();
 		ListaEntidades* getEntityList() { return listaEntidades; }
 		void displayFase();
-		void inicializeElementos();
+		virtual void inicializeElementos();
 		void reposicaoPlataforma();
 	};
 }

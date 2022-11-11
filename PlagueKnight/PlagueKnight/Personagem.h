@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Entidade.h"
+#include <SFML/Graphics.hpp>
 
 namespace Personagens {
     class Personagem : public Entidade {
@@ -13,13 +14,23 @@ namespace Personagens {
         float alturaMaxPulo;
         float collidedY;
         float collidedX;
+        float x;
+        float y;
 
     public:
         Personagem();
+        Personagem(float x_inicial, float y_inicial, const char* caminho_textura, float largura, float comprimento, int num_v = 1);
         ~Personagem();
+
+        void setNumVidas(int num_v);
         int getVidas();
+
+        void setAlturaMaxPulo(float h);
+        float getAlturaMaxPulo();
+
         void setVelocidade(float v);
         void setFlyingSpeed(float s);
+
         void setCollidedX(float value) { this->collidedX = value; }
         void setCollidedY(float value) { this->collidedY = value; }
     };

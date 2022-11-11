@@ -12,10 +12,12 @@ protected:
 	float posY;
 	float obstSize;
 	sf::RectangleShape body;
+	sf::Texture* textura;
 	sf::RenderWindow* window;
 
 public:
 	Entidade();
+	Entidade(float x_inicial, float y_inicial, const char* caminho_textura, float largura, float comprimento);
 	~Entidade();
 	void setWindow(sf::RenderWindow* window) { this->window = window; }
 	void draw() { window->draw(body); }
