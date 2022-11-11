@@ -110,7 +110,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;sfml-network-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-audio.lib;sfml-network.lib;sfml-system.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -129,30 +129,46 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\SFML-2.5.1\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-audio.lib;sfml-network.lib;sfml-system.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-graphics.lib;sfml-window.lib;sfml-audio.lib;sfml-network.lib;sfml-system.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ListaEntidades.cpp" />
+    <ClCompile Include="Gerenciador_Colisoes.cpp" />
+    <ClCompile Include="Inimigo_A.cpp" />
+    <ClCompile Include="Inimigo_B.cpp" />
     <ClCompile Include="Ente.cpp" />
     <ClCompile Include="Entidade.cpp" />
     <ClCompile Include="Fase.cpp" />
     <ClCompile Include="Inimigo.cpp" />
     <ClCompile Include="Jogador.cpp" />
     <ClCompile Include="Jogo.cpp" />
+    <ClCompile Include="Fase_A.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Obstaculo.cpp" />
     <ClCompile Include="Personagem.cpp" />
     <ClCompile Include="PlagueKnight.cpp" />
+    <ClCompile Include="Plataforma.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Elemento.h" />
+    <ClInclude Include="ListaEntidades.h" />
+    <ClInclude Include="Gerenciador_Colisoes.h" />
+    <ClInclude Include="Inimigo_A.h" />
+    <ClInclude Include="Inimigo_B.h" />
     <ClInclude Include="Ente.h" />
     <ClInclude Include="Entidade.h" />
     <ClInclude Include="Fase.h" />
     <ClInclude Include="Inimigo.h" />
     <ClInclude Include="Jogador.h" />
     <ClInclude Include="Jogo.h" />
+    <ClInclude Include="Fase_A.h" />
+    <ClInclude Include="Lista.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Obstaculo.h" />
     <ClInclude Include="Options.h" />
     <ClInclude Include="Personagem.h" />
+    <ClInclude Include="Plataforma.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

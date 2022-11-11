@@ -2,23 +2,25 @@
 
 #include <vector>
 #include "Ente.h"
-#include "GerenciadorColisoes.h"
+#include "Gerenciador_Colisoes.h"
 #include "Jogador.h"
 #include "Inimigo.h"
 #include "Inimigo_A.h"
+#include "Inimigo_B.h"
 #include "ListaEntidades.h"
 #include <SFML/Graphics.hpp>
 #include "Plataforma.h"
 
 using namespace Jogadores;
+using namespace Inimigos;
 
 namespace Fases {
-	class Fase:Ente {
+	class Fase : Ente {
 	private:
-		Collisions_Manager cm;
-		EntityList* entityList;
-		List<Enemy> ListEnemies;
-		Platform platform;
+		Gerenciador_Colisoes cm;
+		ListaEntidades* listaEntidades;
+		Lista<Inimigo> ListEnemies;
+		Plataforma plataforma;
 		Jogador* jogador1;
 		sf::RenderWindow* window;
 
@@ -26,7 +28,7 @@ namespace Fases {
 		Fase();
 		Fase(Jogador* jogador1, sf::RenderWindow* window);
 		~Fase();
-		EntityList* getEntityList() { return entityList; }
+		ListaEntidades* getEntityList() { return listaEntidades; }
 		void displayFase();
 		void inicializeElementos();
 		void reposicaoPlataforma();

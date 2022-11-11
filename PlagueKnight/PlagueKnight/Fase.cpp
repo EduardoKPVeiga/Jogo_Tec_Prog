@@ -1,14 +1,18 @@
 #include "Fase.h"
 
 namespace Fases {
-    Fase::Fase() { }
+    Fase::Fase() {
+        jogador1 = NULL;
+        window = NULL;
+        listaEntidades = NULL;
+    }
 
     Fase::Fase(Jogador* jogador1, sf::RenderWindow* window) {
-        cm.setlo(&platform);
+        cm.setLO(&plataforma);
         this->window = window;
         this->jogador1 = jogador1;
 
-        entitylist = new entitylist();
+        listaEntidades = new ListaEntidades();
         inicializeElementos();
     }
 
@@ -24,7 +28,7 @@ namespace Fases {
         sf::Texture texture;
         sf::Text text;
 
-        platform.setWindow(window);
+        plataforma.setWindow(window);
 
         // Logic
         jogador1->mover();
@@ -36,68 +40,68 @@ namespace Fases {
         jogador1->draw();
 
         // Show enemies
-        entityList->drawEntities(window);
-        entityList->moveEntities();
+        listaEntidades->drawEntities(window);
+        listaEntidades->moveEntities();
 
         reposicaoPlataforma();
 
         // Show player's life
         text.setFont(font);
-        text.setString("Vidas: " + std::to_string(jogador1->getVidas()) + " Enemies: " + std::to_string(entityList->LEs.getLength()));
+        text.setString("Vidas: " + std::to_string(jogador1->getVidas()) + " Enemies: " + std::to_string(listaEntidades->LIs.getLength()));
         text.setCharacterSize(24);
         text.setFillColor(sf::Color::White);
         window->draw(text);
     }
 
     void Fase::inicializeElementos() {
-        Enemy_B* enemy1 = new Enemy_B(0.f, 0.f, window);
-        Enemy_B* enemy2 = new Enemy_B(650.f, 360.f, window);
-        Enemy_B* enemy3 = new Enemy_B(400.f, 0.f, window);
-        Enemy_A* enemy4 = new Enemy_A(10.f, 20.f, window);
+        Inimigo_B* inimigo1 = new Inimigo_B(0.f, 0.f, window);
+        Inimigo_B* inimigo2 = new Inimigo_B(650.f, 360.f, window);
+        Inimigo_B* inimigo3 = new Inimigo_B(400.f, 0.f, window);
+        Inimigo_A* inimigo4 = new Inimigo_A(10.f, 20.f, window);
 
-        entityList->LEs.push(enemy1);
-        entityList->LEs.push(enemy2);
-        entityList->LEs.push(enemy3);
-        entityList->LEs.push(enemy4);
+        listaEntidades->LIs.push(inimigo1);
+        listaEntidades->LIs.push(inimigo2);
+        listaEntidades->LIs.push(inimigo3);
+        listaEntidades->LIs.push(inimigo4);
 
     }
 
     void Fase::reposicaoPlataforma() {
-        for (int i = 0; i < window->getSize().x / platform.getBodySize(); i++) {
-            platform.setBodyPosition(i * platform.getBodySize(), (window->getSize().y - platform.getBodySize()));
+        for (int i = 0; i < window->getSize().x / plataforma.getBodySize(); i++) {
+            plataforma.setBodyPosition(i * plataforma.getBodySize(), (window->getSize().y - plataforma.getBodySize()));
             cm.verify_collisions(jogador1);
 
-            for (int j = 0; j < entityList->LEs.getLength(); j++) {
-                cm.verify_collisions(entityList->LEs.getItem(j));
+            for (int j = 0; j < listaEntidades->LIs.getLength(); j++) {
+                cm.verify_collisions(listaEntidades->LIs.getItem(j));
             }
-            platform.draw();
+            plataforma.draw();
         }
-        for (int i = 0; i < (window->getSize().x / platform.getBodySize()) / 3; i++) {
-            platform.setBodyPosition(i * platform.getBodySize(), 450);
+        for (int i = 0; i < (window->getSize().x / plataforma.getBodySize()) / 3; i++) {
+            plataforma.setBodyPosition(i * plataforma.getBodySize(), 450);
             cm.verify_collisions(jogador1);
 
-            for (int j = 0; j < entityList->LEs.getLength(); j++) {
-                cm.verify_collisions(entityList->LEs.getItem(j));
+            for (int j = 0; j < listaEntidades->LIs.getLength(); j++) {
+                cm.verify_collisions(listaEntidades->LIs.getItem(j));
             }
-            platform.draw();
+            plataforma.draw();
         }
-        for (int i = (window->getSize().x / platform.getBodySize()) / 2.8; i < window->getSize().x; i++) {
-            platform.setBodyPosition(i * platform.getBodySize(), 250);
+        for (int i = (window->getSize().x / plataforma.getBodySize()) / 2.8; i < window->getSize().x; i++) {
+            plataforma.setBodyPosition(i * plataforma.getBodySize(), 250);
             cm.verify_collisions(jogador1);
 
-            for (int j = 0; j < entityList->LEs.getLength(); j++) {
-                cm.verify_collisions(entityList->LEs.getItem(j));
+            for (int j = 0; j < listaEntidades->LIs.getLength(); j++) {
+                cm.verify_collisions(listaEntidades->LIs.getItem(j));
             }
-            platform.draw();
+            plataforma.draw();
         }
-        for (int i = (window->getSize().y / platform.getBodySize()) / 1.5; i < window->getSize().y; i++) {
-            platform.setBodyPosition(650, i * platform.getBodySize());
+        for (int i = (window->getSize().y / plataforma.getBodySize()) / 1.5; i < window->getSize().y; i++) {
+            plataforma.setBodyPosition(650, i * plataforma.getBodySize());
             cm.verify_collisions(jogador1);
 
-            for (int j = 0; j < entityList->LEs.getLength(); j++) {
-                cm.verify_collisions(entityList->LEs.getItem(j));
+            for (int j = 0; j < listaEntidades->LIs.getLength(); j++) {
+                cm.verify_collisions(listaEntidades->LIs.getItem(j));
             }
-            platform.draw();
+            plataforma.draw();
         }
 
     }

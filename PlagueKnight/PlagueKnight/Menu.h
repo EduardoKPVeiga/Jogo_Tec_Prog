@@ -4,8 +4,9 @@
 #include <string>
 #include <vector>
 #include "Options.h"
+#include "Ente.h"
 
-class Menu {
+class Menu : Ente {
 private:
 	std::vector< std::string> options_str;
 

@@ -1,5 +1,6 @@
-﻿  Entidade.cpp
-  Jogo.cpp
+﻿  Jogo.cpp
+  Menu.cpp
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Menu.cpp(25,37): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
   PlagueKnight.cpp
   Gerando Código...
   PlagueKnight.vcxproj -> C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\x64\Debug\PlagueKnight.exe
