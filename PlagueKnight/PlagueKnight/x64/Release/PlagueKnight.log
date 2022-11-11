@@ -1,0 +1,31 @@
+﻿  ListaEntidades.cpp
+C:\Users\Guilherme\Desktop\ut\tec-prog\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Entidade.h(3,10): fatal  error C1083: Não é possível abrir arquivo incluir: 'SFML/Graphics.hpp': No such file or directory
+  Gerenciador_Colisoes.cpp
+C:\Users\Guilherme\Desktop\ut\tec-prog\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Entidade.h(3,10): fatal  error C1083: Não é possível abrir arquivo incluir: 'SFML/Graphics.hpp': No such file or directory
+  Inimigo_A.cpp
+C:\Users\Guilherme\Desktop\ut\tec-prog\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Entidade.h(3,10): fatal  error C1083: Não é possível abrir arquivo incluir: 'SFML/Graphics.hpp': No such file or directory
+  Inimigo_B.cpp
+C:\Users\Guilherme\Desktop\ut\tec-prog\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Entidade.h(3,10): fatal  error C1083: Não é possível abrir arquivo incluir: 'SFML/Graphics.hpp': No such file or directory
+  Ente.cpp
+  Entidade.cpp
+C:\Users\Guilherme\Desktop\ut\tec-prog\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Entidade.h(3,10): fatal  error C1083: Não é possível abrir arquivo incluir: 'SFML/Graphics.hpp': No such file or directory
+  Fase.cpp
+C:\Users\Guilherme\Desktop\ut\tec-prog\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Entidade.h(3,10): fatal  error C1083: Não é possível abrir arquivo incluir: 'SFML/Graphics.hpp': No such file or directory
+  Inimigo.cpp
+C:\Users\Guilherme\Desktop\ut\tec-prog\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Entidade.h(3,10): fatal  error C1083: Não é possível abrir arquivo incluir: 'SFML/Graphics.hpp': No such file or directory
+  Jogador.cpp
+C:\Users\Guilherme\Desktop\ut\tec-prog\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Entidade.h(3,10): fatal  error C1083: Não é possível abrir arquivo incluir: 'SFML/Graphics.hpp': No such file or directory
+  Jogo.cpp
+C:\Users\Guilherme\Desktop\ut\tec-prog\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Jogo.h(3,10): fatal  error C1083: Não é possível abrir arquivo incluir: 'SFML/Graphics.hpp': No such file or directory
+  Fase_A.cpp
+C:\Users\Guilherme\Desktop\ut\tec-prog\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Entidade.h(3,10): fatal  error C1083: Não é possível abrir arquivo incluir: 'SFML/Graphics.hpp': No such file or directory
+  Menu.cpp
+C:\Users\Guilherme\Desktop\ut\tec-prog\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Menu.h(3,10): fatal  error C1083: Não é possível abrir arquivo incluir: 'SFML/Graphics.hpp': No such file or directory
+  Obstaculo.cpp
+C:\Users\Guilherme\Desktop\ut\tec-prog\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Entidade.h(3,10): fatal  error C1083: Não é possível abrir arquivo incluir: 'SFML/Graphics.hpp': No such file or directory
+  Personagem.cpp
+C:\Users\Guilherme\Desktop\ut\tec-prog\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Entidade.h(3,10): fatal  error C1083: Não é possível abrir arquivo incluir: 'SFML/Graphics.hpp': No such file or directory
+  PlagueKnight.cpp
+C:\Users\Guilherme\Desktop\ut\tec-prog\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\PlagueKnight.cpp(2,10): fatal  error C1083: Não é possível abrir arquivo incluir: 'SFML/Graphics.hpp': No such file or directory
+  Plataforma.cpp
+C:\Users\Guilherme\Desktop\ut\tec-prog\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Entidade.h(3,10): fatal  error C1083: Não é possível abrir arquivo incluir: 'SFML/Graphics.hpp': No such file or directory

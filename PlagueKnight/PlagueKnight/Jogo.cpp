@@ -1,10 +1,11 @@
 #include "Jogo.h"
 
+
 Jogo::Jogo() :
     window(sf::VideoMode(1100, 720), "Plague Knight", sf::Style::Close)
-{
-//    opcao = Opcao::MENU;
-//    player.setWindow(&window);
+{   
+    //opcao = Opcao::MENU;
+    jogador.setWindow(&window);
     executar();
 }
 Jogo::~Jogo() { }
@@ -22,7 +23,7 @@ void Jogo::executar()
                 window.close();
         }
         window.clear();
-        /*
+        
         if (option == Options::MENU)
         {
             //Colocar endereco na construtora
@@ -31,9 +32,9 @@ void Jogo::executar()
         else if (option == Options::LEVEL)
         {
 
-            level->display_level();
+            fase->displayFase();
         }
-        */
+        
         window.display();
     }
 }

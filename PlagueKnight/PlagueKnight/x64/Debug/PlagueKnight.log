@@ -1,6 +1,4 @@
-﻿  Jogo.cpp
-  Menu.cpp
-C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Menu.cpp(25,37): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-  PlagueKnight.cpp
-  Gerando Código...
-  PlagueKnight.vcxproj -> C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\x64\Debug\PlagueKnight.exe
+﻿  Fase.cpp
+C:\Users\Guilherme\Desktop\ut\tec-prog\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase.cpp(88,20): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+C:\Users\Guilherme\Desktop\ut\tec-prog\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase.cpp(88,80): warning C4018: '<': incompatibilidade de signed/unsigned
+  PlagueKnight.vcxproj -> C:\Users\Guilherme\Desktop\ut\tec-prog\Jogo_Tec_Prog\PlagueKnight\x64\Debug\PlagueKnight.exe

@@ -94,6 +94,7 @@ namespace Fases {
             }
             plataforma.draw();
         }
+        /*
         for (int i = (window->getSize().y / plataforma.getBodySize()) / 1.5; i < window->getSize().y; i++) {
             plataforma.setBodyPosition(650, i * plataforma.getBodySize());
             cm.verify_collisions(jogador1);
@@ -103,6 +104,7 @@ namespace Fases {
             }
             plataforma.draw();
         }
+        */
 
     }
 }
