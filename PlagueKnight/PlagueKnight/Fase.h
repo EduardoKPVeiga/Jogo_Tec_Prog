@@ -20,7 +20,8 @@ namespace Fases {
 		Gerenciador_Colisoes cm;
 		ListaEntidades* listaEntidades;
 		Lista<Inimigo> ListEnemies;
-		Plataforma plataforma;
+		Lista<Obstaculo> LO;
+		//Plataforma plataforma;
 		Jogador* jogador1;
 		sf::RenderWindow* window;
 
@@ -31,6 +32,8 @@ namespace Fases {
 		ListaEntidades* getEntityList() { return listaEntidades; }
 		void displayFase();
 		void inicializeElementos();
-		void reposicaoPlataforma();
+		void desenhaPlataforma();
+		void inicializaPlataforma();
+		Lista<Obstaculo> getObstaculos() { return LO; }
 	};
 }

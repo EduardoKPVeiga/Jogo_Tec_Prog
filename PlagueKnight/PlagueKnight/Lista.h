@@ -1,6 +1,7 @@
 #pragma once
 #include "Elemento.h"
 
+//Completa
 template<class TL> class Lista {
 private:
 	Elemento<TL>* head;

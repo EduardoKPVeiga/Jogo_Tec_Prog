@@ -34,7 +34,7 @@ namespace Jogadores {
         }
 
         if (posJogador.y < (tamanho.y - tamanhoJogador.y) && (body.getPosition().y < collidedY - tamanhoJogador.y)) {
-            body.move(sf::Vector2f(0.0f, vel_queda));
+            receberGravidade(false);
             if (posJogador.y <= alturaMaxPulo)
                 estah_pulando = true;
 

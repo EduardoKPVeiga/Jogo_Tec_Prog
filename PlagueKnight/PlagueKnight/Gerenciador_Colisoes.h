@@ -16,7 +16,9 @@ private:
 public:
     Gerenciador_Colisoes();
     ~Gerenciador_Colisoes();
+
+    //Usar list STL
     void setLO(Plataforma* obstacle);
     Plataforma getObstacle(int position) { return *LO.getItem(position); }
-    void verify_collisions(Personagem *person);
+    void verify_collisions(Personagem* person, int direction);
 };

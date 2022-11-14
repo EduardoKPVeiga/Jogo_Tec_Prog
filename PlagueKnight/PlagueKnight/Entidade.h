@@ -11,6 +11,8 @@ protected:
 	float posX;
 	float posY;
 	float obstSize;
+	float gravidade = 10.0f;
+	bool empuxo = false;
 	sf::RectangleShape body;
 	sf::RenderWindow* window;
 
@@ -23,5 +25,6 @@ public:
 	void setBodyPosition(float x, float y) { this->body.setPosition(x, y); }
 	sf::FloatRect getBodyGlobalBounds() { return this->body.getGlobalBounds(); }
 	sf::RectangleShape getBody() { return this->body; }
+	void receberGravidade(bool empuxo);
 };
 

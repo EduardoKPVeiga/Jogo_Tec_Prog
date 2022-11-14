@@ -41,7 +41,7 @@ namespace Inimigos {
         }
 
         if (enemyPosition.y < (size.y - enemySize.y) && (body.getPosition().y < collidedY - enemySize.y) && flyingSpeed != 20.000055f) {
-            body.move(sf::Vector2f(0.0f, vel_queda));
+            receberGravidade(false);
             if (enemyPosition.y <= alturaMaxPulo)
                 estah_pulando = true;
 

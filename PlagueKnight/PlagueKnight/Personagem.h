@@ -6,13 +6,13 @@ namespace Personagens {
     class Personagem : public Entidade {
     protected:
         float velocidade = 5.000022f;
-        float vel_queda = 20.000055f;
-        float vel_pulo = -vel_queda * 2.0f;
+        float vel_pulo = -gravidade * 2.0f;
         int num_vidas;
         int direcao = 1;
         float alturaMaxPulo;
         float collidedY;
         float collidedX;
+        bool empuxo = false;
 
     public:
         Personagem();

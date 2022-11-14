@@ -8,12 +8,13 @@ namespace Fases {
     }
 
     Fase::Fase(Jogador* jogador1, sf::RenderWindow* window) {
-        cm.setLO(&plataforma);
         this->window = window;
         this->jogador1 = jogador1;
 
         listaEntidades = new ListaEntidades();
         inicializeElementos();
+
+        inicializaPlataforma();
     }
 
 
@@ -28,9 +29,10 @@ namespace Fases {
         sf::Texture texture;
         sf::Text text;
 
-        plataforma.setWindow(window);
+        //plataforma.setWindow(window);
 
         // Logic
+
         jogador1->mover();
 
         // Display
@@ -43,7 +45,7 @@ namespace Fases {
         listaEntidades->drawEntities(window);
         listaEntidades->moveEntities();
 
-        reposicaoPlataforma();
+        //desenhaPlataforma();
 
         // Show player's life
         text.setFont(font);
@@ -66,45 +68,28 @@ namespace Fases {
 
     }
 
-    void Fase::reposicaoPlataforma() {
-        for (int i = 0; i < window->getSize().x / plataforma.getBodySize(); i++) {
-            plataforma.setBodyPosition(i * plataforma.getBodySize(), (window->getSize().y - plataforma.getBodySize()));
-            cm.verify_collisions(jogador1);
-
-            for (int j = 0; j < listaEntidades->LIs.getLength(); j++) {
-                cm.verify_collisions(listaEntidades->LIs.getItem(j));
-            }
-            plataforma.draw();
+    void Fase::desenhaPlataforma() {
+        for (int i = 0; i < LO.getLength(); i++)
+        {
+            LO.getItem(i)->draw();
         }
-        for (int i = 0; i < (window->getSize().x / plataforma.getBodySize()) / 3; i++) {
-            plataforma.setBodyPosition(i * plataforma.getBodySize(), 450);
-            cm.verify_collisions(jogador1);
 
-            for (int j = 0; j < listaEntidades->LIs.getLength(); j++) {
-                cm.verify_collisions(listaEntidades->LIs.getItem(j));
-            }
-            plataforma.draw();
-        }
-        for (int i = (window->getSize().x / plataforma.getBodySize()) / 2.8; i < window->getSize().x; i++) {
-            plataforma.setBodyPosition(i * plataforma.getBodySize(), 250);
-            cm.verify_collisions(jogador1);
 
-            for (int j = 0; j < listaEntidades->LIs.getLength(); j++) {
-                cm.verify_collisions(listaEntidades->LIs.getItem(j));
-            }
-            plataforma.draw();
+    }
+    void Fase::inicializaPlataforma()
+    {
+        Plataforma* plataforma;
+        for (float  i = window->getSize().x / plataforma->getBodySize(); i < window->getSize().x; i++)
+        {
+            Plataforma* plataforma;
+            plataforma->setBodyPosition(window->getSize().y- plataforma->getBodySize(), i * plataforma->getBodySize());
+            LO.push(plataforma);
+            
         }
-        /*
-        for (int i = (window->getSize().y / plataforma.getBodySize()) / 1.5; i < window->getSize().y; i++) {
-            plataforma.setBodyPosition(650, i * plataforma.getBodySize());
-            cm.verify_collisions(jogador1);
-
-            for (int j = 0; j < listaEntidades->LIs.getLength(); j++) {
-                cm.verify_collisions(listaEntidades->LIs.getItem(j));
-            }
-            plataforma.draw();
+        for (int i = 0; i < LO.getLength(); i++)
+        {
+            //cout << (LOgetItem(i)->getBodySize()) << endl;
         }
-        */
 
     }
 }
