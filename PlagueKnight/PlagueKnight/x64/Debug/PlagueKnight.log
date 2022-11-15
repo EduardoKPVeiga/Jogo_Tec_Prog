@@ -1,4 +1,4 @@
-﻿  Fase.cpp
-C:\Users\Guilherme\Desktop\ut\tec-prog\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase.cpp(32,9): error C2065: 'plataforma': identificador não declarado
-  PlagueKnight.cpp
+﻿  Inimigo.cpp
+  Plataforma.cpp
   Gerando Código...
+  PlagueKnight.vcxproj -> C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\x64\Debug\PlagueKnight.exe

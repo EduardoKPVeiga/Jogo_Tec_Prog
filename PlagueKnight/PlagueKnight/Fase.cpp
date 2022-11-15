@@ -57,15 +57,14 @@ namespace Fases {
 
     void Fase::inicializeElementos() {
         Inimigo_B* inimigo1 = new Inimigo_B(0.f, 0.f, window);
-        Inimigo_B* inimigo2 = new Inimigo_B(650.f, 360.f, window);
-        Inimigo_B* inimigo3 = new Inimigo_B(400.f, 0.f, window);
-        Inimigo_A* inimigo4 = new Inimigo_A(10.f, 20.f, window);
+        Inimigo_B* inimigo2 = new Inimigo_B((650.f / RESOLUTION_X), (360.f / RESOLUTION_Y), window);
+        Inimigo_B* inimigo3 = new Inimigo_B((400.f / RESOLUTION_X), 0.f, window);
+        Inimigo_A* inimigo4 = new Inimigo_A((10.f / RESOLUTION_X), (20.f / RESOLUTION_Y), window);
 
         listaEntidades->LIs.push(inimigo1);
         listaEntidades->LIs.push(inimigo2);
         listaEntidades->LIs.push(inimigo3);
         listaEntidades->LIs.push(inimigo4);
-
     }
 
     void Fase::desenhaPlataforma() {
@@ -78,10 +77,10 @@ namespace Fases {
     }
     void Fase::inicializaPlataforma()
     {
-        Plataforma* plataforma;
+        Plataforma* plataforma = new Plataforma();
         for (float  i = window->getSize().x / plataforma->getBodySize(); i < window->getSize().x; i++)
         {
-            Plataforma* plataforma;
+            Plataforma* plataforma = new Plataforma();
             plataforma->setBodyPosition(window->getSize().y- plataforma->getBodySize(), i * plataforma->getBodySize());
             LO.push(plataforma);
             

@@ -1,8 +1,7 @@
 #include "Jogo.h"
 
-
 Jogo::Jogo() :
-    window(sf::VideoMode(1100, 720), "Plague Knight", sf::Style::Close)
+    window(sf::VideoMode((1100 / RESOLUTION_X), (720 / RESOLUTION_Y)), "Plague Knight", sf::Style::Close)
 {   
     //opcao = Opcao::MENU;
     jogador.setWindow(&window);

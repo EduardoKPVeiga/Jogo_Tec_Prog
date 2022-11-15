@@ -10,6 +10,7 @@
 #include "ListaEntidades.h"
 #include <SFML/Graphics.hpp>
 #include "Plataforma.h"
+#include "Resolucao.h"
 
 using namespace Jogadores;
 using namespace Inimigos;
@@ -26,14 +27,23 @@ namespace Fases {
 		sf::RenderWindow* window;
 
 	public:
+		// Construtoras e Destrutoras
 		Fase();
 		Fase(Jogador* jogador1, sf::RenderWindow* window);
 		~Fase();
+
+		// Lista de Entidades
 		ListaEntidades* getEntityList() { return listaEntidades; }
+
+		// 'Desenha' Fase e os elementos da Fase
 		void displayFase();
 		void inicializeElementos();
+
+		// Plataforma
 		void desenhaPlataforma();
 		void inicializaPlataforma();
+
+		// Lista de Obstaculos
 		Lista<Obstaculo> getObstaculos() { return LO; }
 	};
 }

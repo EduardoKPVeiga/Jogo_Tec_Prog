@@ -13,13 +13,27 @@ namespace Personagens {
         float collidedY;
         float collidedX;
         bool empuxo = false;
+        float x, y;
 
     public:
+        // Construtoras e destrutoras
         Personagem();
+        Personagem(float x_inicial, float y_inicial, const char* caminho_textura, float largura, float comprimento, sf::RenderWindow* w, int num_v = 1);
         ~Personagem();
+
+        // Vidas
+        void setNumVidas(int num_v);
         int getVidas();
+
+        // Altura de pulo
+        void setAlturaMaxPulo(float h);
+        float getAlturaMaxPulo();
+
+        // Velocidades
         void setVelocidade(float v);
         void setFlyingSpeed(float s);
+
+        // Colisoes
         void setCollidedX(float value) { this->collidedX = value; }
         void setCollidedY(float value) { this->collidedY = value; }
     };

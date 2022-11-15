@@ -5,6 +5,7 @@
 #include <vector>
 #include "Options.h"
 #include "Ente.h"
+#include "Resolucao.h"
 
 class Menu : Ente {
 private:
