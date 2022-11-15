@@ -1,4 +1,4 @@
-#pragma once
+    #pragma once
 
 #include "Personagem.h"
 #include <SFML/Window/Event.hpp>
@@ -14,7 +14,7 @@ namespace Jogadores {
 
     public:
         Jogador();
-        Jogador(float x_inicial, float y_inicial, const char* caminho_textura, float largura, float comprimento, sf::RenderWindow* w = NULL, int num_v = 1);
+        Jogador(float x_inicial, float y_inicial, const char* caminho_textura, float largura, float comprimento, int num_v = 1, sf::RenderWindow* w = NULL);
         ~Jogador();
         void mover();
         void pular();
