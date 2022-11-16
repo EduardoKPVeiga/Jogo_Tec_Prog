@@ -38,5 +38,12 @@ public:
 
 	// Gravidade
 	void receberGravidade(bool empuxo);
+
+	// Posicao
+	void setPosXY(float _posX, float _posY);
+	void setPosX(float _posX);
+	void setPosY(float _posY);
+	float getPosX();
+	float getPosY();
 };
 

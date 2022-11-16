@@ -6,7 +6,7 @@ namespace Jogadores {
         body.setFillColor(sf::Color::Blue);
     }
 
-    Jogador::Jogador(float x_inicial, float y_inicial, const char* caminho_textura, float largura, float comprimento, int num_v, sf::RenderWindow* w = NULL) :
+    Jogador::Jogador(float x_inicial, float y_inicial, const char* caminho_textura, float largura, float comprimento, int num_v, sf::RenderWindow* w) :
         Personagem(x_inicial, y_inicial, caminho_textura, largura, comprimento, w, num_v) {
         body.setFillColor(sf::Color::Blue);
     }

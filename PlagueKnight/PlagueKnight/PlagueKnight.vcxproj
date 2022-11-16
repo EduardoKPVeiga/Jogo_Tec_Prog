@@ -149,6 +149,7 @@
     <ClCompile Include="Personagem.cpp" />
     <ClCompile Include="PlagueKnight.cpp" />
     <ClCompile Include="Plataforma.cpp" />
+    <ClCompile Include="Projetil.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Elemento.h" />
@@ -169,6 +170,7 @@
     <ClInclude Include="Options.h" />
     <ClInclude Include="Personagem.h" />
     <ClInclude Include="Plataforma.h" />
+    <ClInclude Include="Projetil.h" />
     <ClInclude Include="Resolucao.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

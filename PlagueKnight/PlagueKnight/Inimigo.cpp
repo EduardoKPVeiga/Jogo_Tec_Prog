@@ -68,4 +68,12 @@ namespace Inimigos {
     {
         this->flyingSpeed = s;
     }
+
+    void Inimigo::setJogador(Jogador* _pJogador) {
+        pJogador = _pJogador;
+    }
+
+    Jogador* Inimigo::getJogador() {
+        return pJogador;
+    }
 }

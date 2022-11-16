@@ -36,3 +36,24 @@ void Entidade::receberGravidade(bool empuxo)
 		this->body.move(sf::Vector2f(0.0f, gravidade-gravidade));
 	}
 }
+
+void Entidade::setPosXY(float _posX, float _posY) {
+	posX = _posX;
+	posY = _posY;
+}
+
+void Entidade::setPosX(float _posX) {
+	posX = _posX;
+}
+
+void Entidade::setPosY(float _posY) {
+	posY = _posY;
+}
+
+float Entidade::getPosX() {
+	return posX;
+}
+
+float Entidade::getPosY() {
+	return posY;
+}
