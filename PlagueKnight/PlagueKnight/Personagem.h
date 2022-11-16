@@ -10,18 +10,15 @@ namespace Personagens {
         int num_vidas;
         int direcao = 1;
         float alturaMaxPulo;
-        float collidedY;
-        float collidedX;
         bool empuxo = false;
 
     public:
         Personagem();
         ~Personagem();
         int getVidas();
+        int getDirection() { return direcao; }
         void setVelocidade(float v);
         void setFlyingSpeed(float s);
-        void setCollidedX(float value) { this->collidedX = value; }
-        void setCollidedY(float value) { this->collidedY = value; }
     };
 }
 

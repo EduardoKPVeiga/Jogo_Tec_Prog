@@ -8,24 +8,44 @@ Gerenciador_Colisoes::Gerenciador_Colisoes()
     body.setPosition(100, 100);
 }
 
+Gerenciador_Colisoes::Gerenciador_Colisoes(Lista<Obstaculo> LOs, Lista<Inimigo>ListEnemies)
+{
+    LOs = LOs;
+    ListEnemies = ListEnemies;
+}
 Gerenciador_Colisoes::~Gerenciador_Colisoes()
 {
 }
 
 void Gerenciador_Colisoes::setLO(Plataforma *obstaculo)
 {
-    LO.push(obstaculo);
+    LOs.push(obstaculo);
 }
 
-void Gerenciador_Colisoes::verify_collisions(Personagem* personagem, int direction)
+bool Gerenciador_Colisoes::colidiuJogador(sf::RectangleShape body, int direction)
 {
-    if (LO.getLength() > 0)
+    sf::RectangleShape body_futuro;
+    body_futuro = body;
+    if (LOs.getLength() > 0)
     {
-        for (int i = 0; i < LO.getLength(); i++)
+        for (int i = 0; i < LOs.getLength(); i++)
         {
+            if (direction == 4)
+            {
+                body_futuro.move(0.f, 1);
+                if (body_futuro.getGlobalBounds().intersects(LOs.getItem(i)->getBodyGlobalBounds()))
+                {
+                    return true;
+                }
+            }
+            if (direction == 3)
+            {
+
+            }
             
         }
     }
     else
         cout << "LISTA VAZIA" << endl;
+        return false;
 }

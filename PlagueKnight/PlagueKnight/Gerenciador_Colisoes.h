@@ -11,14 +11,16 @@ using namespace Jogadores;
 
 class Gerenciador_Colisoes :public Entidade {
 private:
-    Lista<Plataforma> LO;
-    Plataforma* plataforma;
+    Lista<Obstaculo> LOs;
+    Lista<Inimigo>* ListEnemies;
+    Jogador* j1;
 public:
     Gerenciador_Colisoes();
+    Gerenciador_Colisoes(Lista<Obstaculo> LOs, Lista<Inimigo> ListEnemies);
     ~Gerenciador_Colisoes();
 
     //Usar list STL
     void setLO(Plataforma* obstacle);
-    Plataforma getObstacle(int position) { return *LO.getItem(position); }
-    void verify_collisions(Personagem* person, int direction);
+    Obstaculo getObstacle(int position) { return *LOs.getItem(position); }
+    bool colidiuJogador(sf::RectangleShape body, int direction);
 };

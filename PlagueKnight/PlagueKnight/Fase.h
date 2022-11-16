@@ -17,7 +17,7 @@ using namespace Inimigos;
 namespace Fases {
 	class Fase : Ente {
 	private:
-		Gerenciador_Colisoes cm;
+		Gerenciador_Colisoes* gc;
 		ListaEntidades* listaEntidades;
 		Lista<Inimigo> ListEnemies;
 		Lista<Obstaculo> LO;

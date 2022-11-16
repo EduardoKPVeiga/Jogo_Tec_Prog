@@ -1,9 +1,12 @@
 #include "Jogador.h"
+#include "Gerenciador_Colisoes.h"
 
 namespace Jogadores {
     Jogador::Jogador() {
         num_vidas = 3;
         body.setFillColor(sf::Color::Blue);
+
+        gc = new Gerenciador_Colisoes();
     }
 
     Jogador::~Jogador() {}
@@ -15,13 +18,11 @@ namespace Jogadores {
 
         cout << "T: " << tamanhoJogador.y << endl;
         cout << "P: " << posJogador.y << endl;
-        cout << "C: " << collidedY << endl;
 
-        if (posJogador.y + 30 < collidedY)
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && posJogador.x < (tamanho.x - tamanhoJogador.x)) {
-                body.move(sf::Vector2f(velocidade, 0.f));
-                direcao = 1;
-            }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && posJogador.x < (tamanho.x - tamanhoJogador.x)) {
+             body.move(sf::Vector2f(velocidade, 0.f));
+             direcao = 1;
+        }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && posJogador.x > 0) {
             body.move(sf::Vector2f(-velocidade, 0.f));
@@ -29,21 +30,29 @@ namespace Jogadores {
         }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && posJogador.y > 0) {
+            direcao = 3;
             if (!estah_pulando)
                 body.move(sf::Vector2f(0, vel_pulo));
         }
-
-        if (posJogador.y < (tamanho.y - tamanhoJogador.y) && (body.getPosition().y < collidedY - tamanhoJogador.y)) {
+        if (gc->colidiuJogador(body, 4)==false) {
             receberGravidade(false);
+            direcao = 4;
             if (posJogador.y <= alturaMaxPulo)
                 estah_pulando = true;
 
         }
         else
         {
-            collidedY = (float)window->getSize().y;
+            body.move(200, 200);
+        }
+        /*
+        else
+        {
+            
             estah_pulando = false;
             alturaMaxPulo = posJogador.y - (tamanhoJogador.y * 6);
+            
         }
+        */
     }
 }

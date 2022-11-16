@@ -1,5 +1,5 @@
 #include "Fase.h"
-
+#include <cmath>
 namespace Fases {
     Fase::Fase() {
         jogador1 = NULL;
@@ -11,10 +11,11 @@ namespace Fases {
         this->window = window;
         this->jogador1 = jogador1;
 
+        inicializaPlataforma();
+        gc = new Gerenciador_Colisoes(LO,ListEnemies);
+        jogador1->setGC(gc);
         listaEntidades = new ListaEntidades();
         inicializeElementos();
-
-        inicializaPlataforma();
     }
 
 
@@ -45,7 +46,9 @@ namespace Fases {
         listaEntidades->drawEntities(window);
         listaEntidades->moveEntities();
 
-        //desenhaPlataforma();
+        desenhaPlataforma();
+
+
 
         // Show player's life
         text.setFont(font);
@@ -78,17 +81,12 @@ namespace Fases {
     }
     void Fase::inicializaPlataforma()
     {
-        Plataforma* plataforma;
-        for (float  i = window->getSize().x / plataforma->getBodySize(); i < window->getSize().x; i++)
+        
+        for (int i = 0; i < 22; i++)
         {
-            Plataforma* plataforma;
-            plataforma->setBodyPosition(window->getSize().y- plataforma->getBodySize(), i * plataforma->getBodySize());
+            Plataforma* plataforma = new Plataforma(50 * i, window->getSize().y-50, window);
             LO.push(plataforma);
             
-        }
-        for (int i = 0; i < LO.getLength(); i++)
-        {
-            //cout << (LOgetItem(i)->getBodySize()) << endl;
         }
 
     }
