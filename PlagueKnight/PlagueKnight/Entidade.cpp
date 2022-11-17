@@ -4,17 +4,6 @@ Entidade::Entidade() :body(sf::Vector2f(50.f, 50.f)) {
 	inicializa(0, 0, 0, 0);
 }
 
-Entidade::Entidade(float x_inicial, float y_inicial, const char* caminho_textura, float largura, float comprimento, sf::RenderWindow* w) {
-	inicializa(x_inicial, y_inicial, NULL, w);
-
-	body.setPosition(posX, posY); // ?
-
-	body.setSize(sf::Vector2f(largura, comprimento));
-
-	
-	textura->loadFromFile(caminho_textura);
-}
-
 Entidade::~Entidade() {}
 
 void Entidade::inicializa(float _posX, float _posY, float _obstSize, sf::RenderWindow* _window) {
@@ -37,23 +26,18 @@ void Entidade::receberGravidade(bool empuxo)
 	}
 }
 
-void Entidade::setPosXY(float _posX, float _posY) {
-	posX = _posX;
-	posY = _posY;
-}
-
-void Entidade::setPosX(float _posX) {
-	posX = _posX;
-}
-
-void Entidade::setPosY(float _posY) {
-	posY = _posY;
-}
-
 float Entidade::getPosX() {
 	return posX;
 }
 
 float Entidade::getPosY() {
 	return posY;
+}
+
+void Entidade::setDanoso(bool _danoso) {
+	danoso = _danoso;
+}
+
+bool Entidade::getDanoso() {
+	return danoso;
 }

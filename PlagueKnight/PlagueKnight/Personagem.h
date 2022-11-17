@@ -13,13 +13,14 @@ namespace Personagens {
         float collidedY;
         float collidedX;
         bool empuxo = false;
-        float x, y;
 
     public:
         // Construtoras e destrutoras
         Personagem();
-        Personagem(float x_inicial, float y_inicial, const char* caminho_textura, float largura, float comprimento, sf::RenderWindow* w, int num_v = 1);
         ~Personagem();
+
+        // Inicializadora
+        void inicializa_personagem();
 
         // Vidas
         void setNumVidas(int num_v);

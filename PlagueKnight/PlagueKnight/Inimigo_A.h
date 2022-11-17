@@ -1,13 +1,14 @@
 #pragma once
+
 #include "Inimigo.h"
+#include "Projetil.h"
 
 using namespace Personagens;
 
 namespace Inimigos {
 	class Inimigo_A : public Inimigo {
 	private:
-		sf::RectangleShape flecha;
-		sf::FloatRect flecha_colisao;
+		Projetil bolinha;
 
 	public:
 		Inimigo_A();

@@ -14,7 +14,6 @@ namespace Jogadores {
 
     public:
         Jogador();
-        Jogador(float x_inicial, float y_inicial, const char* caminho_textura, float largura, float comprimento, int num_v = 1, sf::RenderWindow* w = NULL);
         ~Jogador();
         void mover();
         void pular();

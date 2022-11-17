@@ -1,14 +1,18 @@
 #include "Personagem.h"
 
 namespace Personagens {
-    Personagem::Personagem() {}
-
-    Personagem::Personagem(float x_inicial, float y_inicial, const char* caminho_textura, float largura, float comprimento, sf::RenderWindow* w, int num_v) :
-        Entidade(x_inicial, y_inicial, caminho_textura, largura, comprimento, w) {
-        num_vidas = num_v;
+    Personagem::Personagem() {
+        inicializa_personagem();
     }
 
     Personagem::~Personagem() {}
+
+    void Personagem::inicializa_personagem() {
+        num_vidas = 0;
+        alturaMaxPulo = 0;
+        collidedX = 0;
+        collidedY = 0;
+    }
 
     void Personagem::setNumVidas(int num_v) {
         num_vidas = num_v;

@@ -1,2 +1,22 @@
-﻿  Inimigo_A.cpp
+﻿  Entidade.cpp
+  Fase.cpp
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase.cpp(60,100): warning C4305: 'argumento': truncamento de 'double' para 'float'
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase.cpp(61,81): warning C4305: 'argumento': truncamento de 'double' para 'float'
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase.cpp(62,98): warning C4305: 'argumento': truncamento de 'double' para 'float'
+  Fase_A.cpp
+  Gerenciador_Colisoes.cpp
+  Inimigo.cpp
+  Inimigo_A.cpp
+  Inimigo_B.cpp
+  Jogador.cpp
+  Jogo.cpp
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Jogo.cpp(4,54): warning C4244: 'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Jogo.cpp(4,32): warning C4244: 'argumento': conversão de 'double' para 'unsigned int', possível perda de dados
+  ListaEntidades.cpp
+  Obstaculo.cpp
+  Personagem.cpp
+  PlagueKnight.cpp
+  Plataforma.cpp
+  Projetil.cpp
+  Gerando Código...
   PlagueKnight.vcxproj -> C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\x64\Debug\PlagueKnight.exe

@@ -16,11 +16,11 @@ protected:
 	sf::RectangleShape body;
 	sf::Texture* textura;
 	sf::RenderWindow* window;
+	bool danoso;
 
 public:
 	// Construtoras e Destrutoras
 	Entidade();
-	Entidade(float x_inicial, float y_inicial, const char* caminho_textura, float largura, float comprimento, sf::RenderWindow* window);
 	~Entidade();
 
 	// Inicializa Variaveis
@@ -40,10 +40,11 @@ public:
 	void receberGravidade(bool empuxo);
 
 	// Posicao
-	void setPosXY(float _posX, float _posY);
-	void setPosX(float _posX);
-	void setPosY(float _posY);
 	float getPosX();
 	float getPosY();
+
+	// Danoso
+	void setDanoso(bool _danoso);
+	bool getDanoso();
 };
 
