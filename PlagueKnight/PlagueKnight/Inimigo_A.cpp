@@ -22,6 +22,10 @@ namespace Inimigos {
 
 	void Inimigo_A::atirar() {
 		if (!(bolinha.getProjetilAtivo())) { // Se a bolinha nao foi atirada
+			bolinha.setProjetilAtivo(true);
+			bolinha.moverProjetil(this->getPosY());
+		}
+		else {
 			bolinha.moverProjetil(this->getPosY());
 		}
 	}
