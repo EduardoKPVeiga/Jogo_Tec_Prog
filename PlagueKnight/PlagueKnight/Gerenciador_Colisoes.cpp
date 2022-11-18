@@ -8,10 +8,10 @@ Gerenciador_Colisoes::Gerenciador_Colisoes()
     body.setPosition(100, 100);
 }
 
-Gerenciador_Colisoes::Gerenciador_Colisoes(Lista<Obstaculo> LOs, Lista<Inimigo>ListEnemies)
+Gerenciador_Colisoes::Gerenciador_Colisoes(Lista<Obstaculo>* _LOs, Lista<Inimigo>*_ListEnemies)
 {
-    LOs = LOs;
-    ListEnemies = ListEnemies;
+    LOs = _LOs;
+    ListEnemies = _ListEnemies;
 }
 Gerenciador_Colisoes::~Gerenciador_Colisoes()
 {
@@ -19,29 +19,25 @@ Gerenciador_Colisoes::~Gerenciador_Colisoes()
 
 void Gerenciador_Colisoes::setLO(Plataforma *obstaculo)
 {
-    LOs.push(obstaculo);
+    LOs->push(obstaculo);
 }
 
 bool Gerenciador_Colisoes::colidiuJogador(sf::RectangleShape body, int direction)
 {
     sf::RectangleShape body_futuro;
     body_futuro = body;
-    if (LOs.getLength() > 0)
-    {
-        for (int i = 0; i < LOs.getLength(); i++)
-        {
-            if (direction == 4)
-            {
-                body_futuro.move(0.f, 1);
-                if (body_futuro.getGlobalBounds().intersects(LOs.getItem(i)->getBodyGlobalBounds()))
-                {
-                    return true;
-                }
-            }
-            if (direction == 3)
-            {
 
-            }
+    if (direction == 4)
+    {
+        body_futuro.move(0.f, gravidade);
+    }
+    if (LOs->getLength() > 0)
+    {
+        for (int i = 0; i < LOs->getLength(); i++)
+        {
+           
+            if (body_futuro.getGlobalBounds().intersects(LOs->getItem(i)->getBodyGlobalBounds()))
+                return true;
             
         }
     }

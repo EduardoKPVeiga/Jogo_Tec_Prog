@@ -16,9 +16,6 @@ namespace Jogadores {
         sf::Vector2f posJogador = body.getPosition();
         sf::Vector2f tamanhoJogador = body.getSize();
 
-        cout << "T: " << tamanhoJogador.y << endl;
-        cout << "P: " << posJogador.y << endl;
-
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && posJogador.x < (tamanho.x - tamanhoJogador.x)) {
              body.move(sf::Vector2f(velocidade, 0.f));
              direcao = 1;
@@ -34,6 +31,7 @@ namespace Jogadores {
             if (!estah_pulando)
                 body.move(sf::Vector2f(0, vel_pulo));
         }
+        direcao = 4;
         if (gc->colidiuJogador(body, 4)==false) {
             receberGravidade(false);
             direcao = 4;
@@ -41,11 +39,7 @@ namespace Jogadores {
                 estah_pulando = true;
 
         }
-        else
-        {
-            body.move(200, 200);
-        }
-        /*
+        
         else
         {
             
@@ -53,6 +47,6 @@ namespace Jogadores {
             alturaMaxPulo = posJogador.y - (tamanhoJogador.y * 6);
             
         }
-        */
+        
     }
 }

@@ -1,4 +1,5 @@
 #include "Entidade.h"
+#include "Gerenciador_Colisoes.h"
 
 Entidade::Entidade() :body(sf::Vector2f(50.f, 50.f)) {
 	obstSize = NULL;

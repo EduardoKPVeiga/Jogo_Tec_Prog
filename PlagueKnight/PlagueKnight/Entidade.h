@@ -1,9 +1,8 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-
 #include "Ente.h"
-
+class Gerenciador_Colisoes;
 class Entidade : public Ente {
 private:
 

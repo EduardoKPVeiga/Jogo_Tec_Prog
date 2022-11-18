@@ -12,7 +12,7 @@ namespace Fases {
         this->jogador1 = jogador1;
 
         inicializaPlataforma();
-        gc = new Gerenciador_Colisoes(LO,ListEnemies);
+        gc = new Gerenciador_Colisoes(&LO,&ListEnemies);
         jogador1->setGC(gc);
         listaEntidades = new ListaEntidades();
         inicializeElementos();
