@@ -34,6 +34,8 @@ namespace Fases {
         // Logic
 
         jogador1->mover();
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+            jogador1->atirar();
 
         // Display
         window->clear(sf::Color::Black);
@@ -44,6 +46,7 @@ namespace Fases {
         // Show enemies
         listaEntidades->drawEntities(window);
         listaEntidades->moveEntities();
+        //listaEntidades->LIs<Inimigo_A>.getItem(4).atirar();
 
         //desenhaPlataforma();
 

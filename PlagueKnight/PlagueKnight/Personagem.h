@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Entidade.h"
+#include "Projetil.h"
 
 namespace Personagens {
     class Personagem : public Entidade {
@@ -13,11 +14,15 @@ namespace Personagens {
         float collidedY;
         float collidedX;
         bool empuxo = false;
+        Projetil *bolinha = new Projetil();
+        int direcaoDisparo;
 
     public:
         // Construtoras e destrutoras
         Personagem();
         ~Personagem();
+
+        void setWindow(sf::RenderWindow* window) { this->window = window; bolinha->setWindow(window); }
 
         // Inicializadora
         void inicializa_personagem();
@@ -37,6 +42,8 @@ namespace Personagens {
         // Colisoes
         void setCollidedX(float value) { this->collidedX = value; }
         void setCollidedY(float value) { this->collidedY = value; }
+
+        void atirar();
     };
 }
 

@@ -27,7 +27,7 @@ public:
 	void inicializa(float _posX, float _posY, float _obstSize, sf::RenderWindow* _window);
 
 	// Janela
-	void setWindow(sf::RenderWindow* window) { this->window = window; }
+	virtual void setWindow(sf::RenderWindow* window) { this->window = window; }
 	void draw() { window->draw(body); }
 
 	// Corpo
