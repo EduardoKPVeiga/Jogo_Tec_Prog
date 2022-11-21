@@ -17,6 +17,8 @@ namespace Jogadores {
         ~Jogador();
         void mover();
         void pular();
+        
+        //sf::RectangleShape getProjetil() { return bolinha->getBody(); }
     };
 }
 

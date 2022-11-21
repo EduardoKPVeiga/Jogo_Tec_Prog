@@ -24,6 +24,7 @@ namespace Fases {
 		Lista<Obstaculo> LO;
 		//Plataforma plataforma;
 		Jogador* jogador1;
+		Projetil* bolinha;
 		sf::RenderWindow* window;
 
 	public:

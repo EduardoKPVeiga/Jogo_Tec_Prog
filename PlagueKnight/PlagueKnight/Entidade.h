@@ -28,7 +28,7 @@ public:
 
 	// Janela
 	virtual void setWindow(sf::RenderWindow* window) { this->window = window; }
-	void draw() { window->draw(body); }
+	virtual void draw() { window->draw(body); }
 
 	// Corpo
 	float getBodySize() { return body.getSize().x; }
@@ -46,5 +46,7 @@ public:
 	// Danoso
 	void setDanoso(bool _danoso);
 	bool getDanoso();
+
+	virtual void mover(float _posX, float _posY, int _direcao) {}
 };
 

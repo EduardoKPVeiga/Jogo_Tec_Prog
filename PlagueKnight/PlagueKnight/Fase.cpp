@@ -3,6 +3,7 @@
 namespace Fases {
     Fase::Fase() {
         jogador1 = NULL;
+        bolinha = NULL;
         window = NULL;
         listaEntidades = NULL;
     }
@@ -18,7 +19,9 @@ namespace Fases {
     }
 
 
-    Fase::~Fase() {}
+    Fase::~Fase() {
+        delete bolinha;
+    }
 
     void Fase::displayFase() {
         sf::Font font;
@@ -34,14 +37,18 @@ namespace Fases {
         // Logic
 
         jogador1->mover();
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-            jogador1->atirar();
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+            jogador1->atirar(bolinha);
+
+        bolinha->mover(jogador1->getPosX(), jogador1->getPosY(), jogador1->getDirecaoDisparo());
 
         // Display
         window->clear(sf::Color::Black);
 
         // Show player
         jogador1->draw();
+        bolinha->draw();
 
         // Show enemies
         listaEntidades->drawEntities(window);
@@ -59,10 +66,12 @@ namespace Fases {
     }
 
     void Fase::inicializeElementos() {
+        //cout << "inicializeelementos()" << endl;
         Inimigo_B* inimigo1 = new Inimigo_B(0.f, 0.f, window);
         Inimigo_B* inimigo2 = new Inimigo_B((650.f / RESOLUTION_X), (360.f / RESOLUTION_Y), window);
         Inimigo_B* inimigo3 = new Inimigo_B((400.f / RESOLUTION_X), 0.f, window);
         Inimigo_A* inimigo4 = new Inimigo_A((10.f / RESOLUTION_X), (20.f / RESOLUTION_Y), window);
+        bolinha = new Projetil(window);
 
         listaEntidades->LIs.push(inimigo1);
         listaEntidades->LIs.push(inimigo2);

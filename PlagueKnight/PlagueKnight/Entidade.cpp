@@ -19,6 +19,7 @@ void Entidade::receberGravidade(bool empuxo)
 	if (!empuxo)
 	{
 		this->body.move(sf::Vector2f(0.0f, gravidade));
+		posY += gravidade;
 	}
 	else
 	{
@@ -27,11 +28,11 @@ void Entidade::receberGravidade(bool empuxo)
 }
 
 float Entidade::getPosX() {
-	return posX;
+	return body.getPosition().x;
 }
 
 float Entidade::getPosY() {
-	return posY;
+	return body.getPosition().y;
 }
 
 void Entidade::setDanoso(bool _danoso) {

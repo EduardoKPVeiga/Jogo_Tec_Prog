@@ -21,11 +21,13 @@ namespace Jogadores {
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && posJogador.x < (tamanho.x - tamanhoJogador.x)) {
                 body.move(sf::Vector2f(velocidade, 0.f));
                 direcao = 1;
+                direcaoDisparo = 1;
             }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && posJogador.x > 0) {
             body.move(sf::Vector2f(-velocidade, 0.f));
             direcao = 0;
+            direcaoDisparo = -1;
         }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && posJogador.y > 0) {

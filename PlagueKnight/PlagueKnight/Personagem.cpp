@@ -34,16 +34,20 @@ namespace Personagens {
 		this->velocidade = v;
 	}
 
-	void Personagem::atirar() {
-		if (!(bolinha->getProjetilAtivo())) { // Se a bolinha nao foi atirada
-			if (direcao == 0)
-				direcaoDisparo = -1;
-			else if (direcao == 1)
-				direcaoDisparo = 1;
+	void Personagem::atirar(Projetil* bolinha) {
+		/*
+			Arrumar funcao para criar a bolinha aqui;
+			Personagem nao pode 'ter' bolinha;
+			colocar bolinha na lista de entidades;
+			tirar moverProjetil() de atirar.
+		*/
 
+		if (!(bolinha->getProjetilAtivo())) { // Se a bolinha nao foi atirada
 			bolinha->setProjetilAtivo(true);
 		}
-		bolinha->moverProjetil(posX, posY, direcaoDisparo);
-		bolinha->draw();
+	}
+
+	int Personagem::getDirecaoDisparo() {
+		return direcaoDisparo;
 	}
 }

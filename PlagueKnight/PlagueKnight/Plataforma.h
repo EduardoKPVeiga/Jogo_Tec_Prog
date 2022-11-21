@@ -12,6 +12,5 @@ public:
     Lista<Plataforma> getLista() { return LO; }
 private:
     Lista<Plataforma> LO;
-    
 };
 

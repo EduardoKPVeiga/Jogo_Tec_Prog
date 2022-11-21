@@ -14,7 +14,6 @@ namespace Personagens {
         float collidedY;
         float collidedX;
         bool empuxo = false;
-        Projetil *bolinha = new Projetil();
         int direcaoDisparo;
 
     public:
@@ -22,7 +21,7 @@ namespace Personagens {
         Personagem();
         ~Personagem();
 
-        void setWindow(sf::RenderWindow* window) { this->window = window; bolinha->setWindow(window); }
+        void setWindow(sf::RenderWindow* window) { this->window = window;/* bolinha->setWindow(window);*/ }
 
         // Inicializadora
         void inicializa_personagem();
@@ -43,7 +42,11 @@ namespace Personagens {
         void setCollidedX(float value) { this->collidedX = value; }
         void setCollidedY(float value) { this->collidedY = value; }
 
-        void atirar();
+        void atirar(Projetil* bolinha);
+
+        virtual void mover(float _posX, float _posY, int _direcao) {}
+
+        int getDirecaoDisparo();
     };
 }
 
