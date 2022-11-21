@@ -1,6 +1,5 @@
 #pragma once
 
-#include <vector>
 #include "Ente.h"
 #include "Gerenciador_Colisoes.h"
 #include "Jogador.h"
@@ -8,8 +7,13 @@
 #include "Inimigo_A.h"
 #include "Inimigo_B.h"
 #include "ListaEntidades.h"
-#include <SFML/Graphics.hpp>
 #include "Plataforma.h"
+#include "Resolucao.h"
+#include "Projetil.h"
+
+#include <vector>
+#include <SFML/Graphics.hpp>
+#include <cmath>
 
 using namespace Jogadores;
 using namespace Inimigos;
@@ -23,6 +27,7 @@ namespace Fases {
 		Lista<Obstaculo> LO;
 		//Plataforma plataforma;
 		Jogador* jogador1;
+		Projetil* bolinha;
 		sf::RenderWindow* window;
 
 	public:

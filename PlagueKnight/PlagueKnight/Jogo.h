@@ -7,6 +7,7 @@
 #include "Menu.h"
 #include "Jogador.h"
 #include "Options.h"
+#include "Resolucao.h"
 
 using namespace Fases;
 using namespace Jogadores;

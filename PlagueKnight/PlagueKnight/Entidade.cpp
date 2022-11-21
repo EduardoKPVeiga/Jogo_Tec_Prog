@@ -21,3 +21,11 @@ void Entidade::receberGravidade(bool empuxo)
 		this->body.move(sf::Vector2f(0.0f, gravidade-gravidade));
 	}
 }
+
+float Entidade::getPosX() {
+	return body.getPosition().x;
+}
+
+float Entidade::getPosY() {
+	return body.getPosition().y;
+}

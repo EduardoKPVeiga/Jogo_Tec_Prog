@@ -1,2 +1,13 @@
-﻿  Jogador.cpp
-  PlagueKnight.vcxproj -> C:\Users\Guilherme\Desktop\ut\tec-prog\Jogo_Tec_Prog\PlagueKnight\x64\Debug\PlagueKnight.exe
+﻿  Fase.cpp
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase.cpp(68,100): warning C4305: 'argumento': truncamento de 'double' para 'float'
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase.cpp(69,81): warning C4305: 'argumento': truncamento de 'double' para 'float'
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase.cpp(70,98): warning C4305: 'argumento': truncamento de 'double' para 'float'
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase.cpp(93,80): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
+          with
+          [
+              T=unsigned int
+          ]
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase.cpp(93,56): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+  Projetil.cpp
+  Gerando Código...
+  PlagueKnight.vcxproj -> C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\x64\Debug\PlagueKnight.exe

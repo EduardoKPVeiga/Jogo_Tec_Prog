@@ -12,4 +12,10 @@ namespace Personagens {
     void Personagem::setVelocidade(float v) {
         this->velocidade = v;
     }
+
+	void Personagem::atirar(Projetil* bolinha) {
+		if (!(bolinha->getProjetilAtivo())) { // Se a bolinha nao foi atirada
+			bolinha->setProjetilAtivo(true);
+		}
+	}
 }

@@ -25,5 +25,8 @@ public:
 	sf::FloatRect getBodyGlobalBounds() { return this->body.getGlobalBounds(); }
 	sf::RectangleShape getBody() { return this->body; }
 	void receberGravidade(bool empuxo);
+	float getPosX();
+	float getPosY();
+	virtual void mover(float _posX, float _posY, int _direcao) {}
 };
 
