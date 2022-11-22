@@ -12,8 +12,8 @@ private:
 	int dano;
 	bool projetilAtivo;
 	sf::FloatRect projetilColisao;
-	time_t tempoAnte = time(NULL);
-	time_t tempoAtual = time(NULL);
+	//time_t tempoAnte = time(NULL);
+	//time_t tempoAtual = time(NULL);
 	int direcaoDisparoProjetil;
 
 public:

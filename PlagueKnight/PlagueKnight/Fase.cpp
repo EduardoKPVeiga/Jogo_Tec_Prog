@@ -6,6 +6,7 @@ namespace Fases {
         bolinha = NULL;
         window = NULL;
         listaEntidades = NULL;
+        gc = NULL;
     }
 
     Fase::Fase(Jogador* jogador1, sf::RenderWindow* window) {
@@ -13,7 +14,7 @@ namespace Fases {
         this->jogador1 = jogador1;
 
         inicializaPlataforma();
-        gc = new Gerenciador_Colisoes(&LO,&ListEnemies);
+        gc = new Gerenciador_Colisoes(&LO,&ListEnemies, &listProjetil);
         jogador1->setGC(gc);
         listaEntidades = new ListaEntidades();
         inicializeElementos();
@@ -37,21 +38,18 @@ namespace Fases {
 
         jogador1->mover();
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-            jogador1->atirar(bolinha);
-
-        bolinha->mover(jogador1->getPosX(), jogador1->getPosY(), jogador1->getDirecaoDisparo());
-
         // Display
         window->clear(sf::Color::Black);
 
         // Show player
         jogador1->draw();
-        bolinha->draw();
 
-        // Show enemies
+        listaEntidades->moveEntities(jogador1->getPosX(), jogador1->getPosY(), jogador1->getDirecaoDisparo());
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+            jogador1->atirar(bolinha);
+
         listaEntidades->drawEntities(window);
-        listaEntidades->moveEntities();
 
         desenhaPlataforma();
 
@@ -74,6 +72,8 @@ namespace Fases {
         listaEntidades->LIs.push(inimigo2);
         listaEntidades->LIs.push(inimigo3);
         listaEntidades->LIs.push(inimigo4);
+        listaEntidades->LPs.push(bolinha);
+        //listaEntidades->LJs.push(jogador1);
 
     }
 
@@ -82,8 +82,6 @@ namespace Fases {
         {
             LO.getItem(i)->draw();
         }
-
-
     }
     void Fase::inicializaPlataforma()
     {
@@ -92,8 +90,6 @@ namespace Fases {
         {
             Plataforma* plataforma = new Plataforma(50 * i, window->getSize().y-50, window);
             LO.push(plataforma);
-            
         }
-
     }
 }

@@ -13,7 +13,7 @@ namespace Inimigos {
         Inimigo();
         Inimigo(float x, float y, sf::RenderWindow* window);
         ~Inimigo();
-        void move();
+        void mover();
         void setFlyingSpeed(float s);
     };
 }

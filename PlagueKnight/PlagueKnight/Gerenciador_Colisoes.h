@@ -13,10 +13,11 @@ class Gerenciador_Colisoes :public Entidade {
 private:
     Lista<Obstaculo>* LOs;
     Lista<Inimigo>* ListEnemies;
+    Lista<Projetil>* listProjetil;
     Jogador* j1;
 public:
     Gerenciador_Colisoes();
-    Gerenciador_Colisoes(Lista<Obstaculo>* LOs, Lista<Inimigo>* ListEnemies);
+    Gerenciador_Colisoes(Lista<Obstaculo>* LOs, Lista<Inimigo>* ListEnemies, Lista<Projetil>* _listProjetil);
     ~Gerenciador_Colisoes();
 
     //Usar list STL

@@ -25,6 +25,7 @@ namespace Fases {
 		ListaEntidades* listaEntidades;
 		Lista<Inimigo> ListEnemies;
 		Lista<Obstaculo> LO;
+		Lista<Projetil> listProjetil;
 		//Plataforma plataforma;
 		Jogador* jogador1;
 		Projetil* bolinha;

@@ -8,10 +8,11 @@ Gerenciador_Colisoes::Gerenciador_Colisoes()
     body.setPosition(100, 100);
 }
 
-Gerenciador_Colisoes::Gerenciador_Colisoes(Lista<Obstaculo>* _LOs, Lista<Inimigo>*_ListEnemies)
+Gerenciador_Colisoes::Gerenciador_Colisoes(Lista<Obstaculo>* _LOs, Lista<Inimigo>*_ListEnemies, Lista<Projetil>* _listProjetil)
 {
     LOs = _LOs;
     ListEnemies = _ListEnemies;
+    listProjetil = _listProjetil;
 }
 Gerenciador_Colisoes::~Gerenciador_Colisoes()
 {

@@ -17,7 +17,7 @@ namespace Inimigos {
     {
     }
 
-    void Inimigo::move()
+    void Inimigo::mover()
     {
         sf::Vector2u size = window->getSize();
         sf::Vector2f enemyPosition = body.getPosition();
