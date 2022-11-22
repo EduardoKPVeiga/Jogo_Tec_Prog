@@ -30,7 +30,7 @@ bool Gerenciador_Colisoes::colidiuJogador(sf::RectangleShape body, int direction
 
     if (direction == 4)
     {
-        body_futuro.move(0.f, gravidade);
+        body_futuro.move(0.f, (gravidade / 2));
     }
     if (LOs->getLength() > 0)
     {

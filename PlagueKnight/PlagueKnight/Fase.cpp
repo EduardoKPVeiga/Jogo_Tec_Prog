@@ -85,10 +85,38 @@ namespace Fases {
     }
     void Fase::inicializaPlataforma()
     {
-        
-        for (int i = 0; i < 22; i++)
+        // Plataformas 1º nivel
+        for (int i = 0; i < 44; i++)
         {
-            Plataforma* plataforma = new Plataforma(50 * i, window->getSize().y-50, window);
+            Plataforma* plataforma = new Plataforma(25 * i, window->getSize().y - 25, window);
+            LO.push(plataforma);
+        }
+
+        // Plataformas 2º nivel
+        for (int i = 0; i < 20; i++) {
+            Plataforma* plataforma = new Plataforma(25 * i, window->getSize().y - 150, window);
+            LO.push(plataforma);
+        }
+
+        for (int i = 0; i < 7; i++) {
+            Plataforma* plataforma = new Plataforma((window->getSize().x - (25 * i)), window->getSize().y - 150, window);
+            LO.push(plataforma);
+        }
+
+        // Plataforma 3º nivel
+        for (int i = 0; i < 15; i++) {
+            Plataforma* plataforma = new Plataforma(((window->getSize().x / 2) - (25 * i)), window->getSize().y - 275, window);
+            LO.push(plataforma);
+        }
+
+        // Plataforma 4º nivel
+        for (int i = 0; i < 7; i++) {
+            Plataforma* plataforma = new Plataforma(25 * i, window->getSize().y - 400, window);
+            LO.push(plataforma);
+        }
+
+        for (int i = 0; i < 20; i++) {
+            Plataforma* plataforma = new Plataforma((window->getSize().x - (25 * i)), window->getSize().y - 400, window);
             LO.push(plataforma);
         }
     }

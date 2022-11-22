@@ -1,7 +1,7 @@
 #include "Entidade.h"
 #include "Gerenciador_Colisoes.h"
 
-Entidade::Entidade() :body(sf::Vector2f(50.f, 50.f)) {
+Entidade::Entidade() :body(sf::Vector2f(25.f, 25.f)) {
 	obstSize = NULL;
 	posX = NULL;
 	posY = NULL;
