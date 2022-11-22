@@ -13,6 +13,14 @@ namespace Inimigos {
         this->window = w;
     }
 
+    Inimigo::Inimigo(float x, float y, sf::RenderWindow* w, Jogador* _jogador)
+    {
+        body.setFillColor(sf::Color::Red);
+        body.setPosition(x, y);
+        this->window = w;
+        jogador = _jogador;
+    }
+
     Inimigo::~Inimigo()
     {
     }
@@ -22,6 +30,16 @@ namespace Inimigos {
         sf::Vector2u size = window->getSize();
         sf::Vector2f enemyPosition = body.getPosition();
         sf::Vector2f enemySize = body.getSize();
+
+        if (jogador->getPosX() < body.getPosition().x) {
+            body.move(sf::Vector2f(-(velocidade / 2), gravidade));
+            direcao = 0;
+        }
+
+        else if (jogador->getPosX() > body.getPosition().x) {
+            body.move(sf::Vector2f((velocidade / 2), gravidade));
+            direcao = 1;
+        }
 
         /*
         if (enemyPosition.x + enemySize.x == (float)window->getSize().x) {
@@ -34,7 +52,7 @@ namespace Inimigos {
                 body.move(sf::Vector2f(velocidade, 0.f));
                 direcao = 1;
             }
-        */
+        
         if (direcao == 0 && enemyPosition.x > 0) {
             body.move(sf::Vector2f(-velocidade, 0.f));
             direcao = 0;

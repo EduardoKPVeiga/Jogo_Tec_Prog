@@ -7,6 +7,7 @@ namespace Inimigos {
 		Inimigo_B();
 		~Inimigo_B();
 		Inimigo_B(float x, float y, sf::RenderWindow* w);
+		Inimigo_B(float x, float y, sf::RenderWindow* w, Jogador* _jogador);
 	
 	};
 }

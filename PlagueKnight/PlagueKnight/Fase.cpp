@@ -62,10 +62,10 @@ namespace Fases {
     }
 
     void Fase::inicializeElementos() {
-        Inimigo_B* inimigo1 = new Inimigo_B(0.f, 0.f, window);
-        Inimigo_B* inimigo2 = new Inimigo_B((650.f / RESOLUTION_X), (360.f / RESOLUTION_Y), window);
-        Inimigo_B* inimigo3 = new Inimigo_B((400.f / RESOLUTION_X), 0.f, window);
-        Inimigo_A* inimigo4 = new Inimigo_A((10.f / RESOLUTION_X), (20.f / RESOLUTION_Y), window);
+        Inimigo_B* inimigo1 = new Inimigo_B(0.f, 0.f, window, jogador1);
+        Inimigo_B* inimigo2 = new Inimigo_B((650.f / RESOLUTION_X), (360.f / RESOLUTION_Y), window, jogador1);
+        Inimigo_B* inimigo3 = new Inimigo_B((400.f / RESOLUTION_X), 0.f, window, jogador1);
+        Inimigo_A* inimigo4 = new Inimigo_A((10.f / RESOLUTION_X), (20.f / RESOLUTION_Y), window, jogador1);
         bolinha = new Projetil(window);
 
         listaEntidades->LIs.push(inimigo1);
