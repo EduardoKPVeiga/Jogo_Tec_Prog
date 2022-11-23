@@ -9,29 +9,24 @@ Jogo::Jogo() :
 }
 Jogo::~Jogo() { }
 
-void Jogo::executar()
-{
+void Jogo::executar() {
 
-    while (window.isOpen())
-    {
+    while (window.isOpen()) {
         window.setFramerateLimit(90);
         sf::Event event;
-        while (window.pollEvent(event))
-        {
+        while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
         }
         window.clear();
         
-        if (option == Options::MENU)
-        {
+        if (option == Options::MENU) {
             //Colocar endereco na construtora
             menu.select_options(&option, &window);
         }
-        else if (option == Options::LEVEL)
-        {
 
-            fase->displayFase();
+        else if (option == Options::LEVEL_A) {
+            fase1->displayFase();
         }
         
         window.display();

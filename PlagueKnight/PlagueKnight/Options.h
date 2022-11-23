@@ -2,5 +2,6 @@
 
 enum class Options {
     MENU,
-    LEVEL
+    LEVEL_A,
+    LEVEL_B
 };

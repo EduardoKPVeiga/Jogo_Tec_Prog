@@ -1,9 +1,20 @@
 #pragma once
 #include "Fase.h"
 
-using namespace Fases;
-
-class Fase_A :public Fase {
-
-};
+namespace Fases {
+	class Fase_A :public Fase {
+	public:
+		Fase_A();
+		Fase_A(Jogador* jogador1, sf::RenderWindow* window);
+		~Fase_A();
+		ListaEntidades* getEntityList() { return listaEntidades; }
+		void displayFase();
+		void inicializeElementos(Jogador* _jogador1, sf::RenderWindow* _window);
+		void desenhaPlataforma();
+		void inicializaPlataforma();
+		void inicializaInimigos(Jogador* _jogador1, sf::RenderWindow* _window);
+		void inicializaProjeteis();
+		Lista<Obstaculo> getObstaculos() { return LO; }
+	};
+}
 

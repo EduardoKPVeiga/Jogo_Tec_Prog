@@ -28,11 +28,19 @@ void Menu::select_options(Options* option, sf::RenderWindow* window) {
     }
 
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && sf::Mouse::getPosition().x >= (900 / RESOLUTION_X) &&
-        sf::Mouse::getPosition().x <= (1000.0 / RESOLUTION_X) && sf::Mouse::getPosition().y >= (460 / RESOLUTION_Y) &&
-        sf::Mouse::getPosition().y <= (490 / RESOLUTION_Y)) {
+        sf::Mouse::getPosition().x <= (1000.0 / RESOLUTION_X) && sf::Mouse::getPosition().y >= (490 / RESOLUTION_Y) &&
+        sf::Mouse::getPosition().y <= (510 / RESOLUTION_Y)) {
 
         window->clear(sf::Color::Black);
-        *option = Options::LEVEL;
+        *option = Options::LEVEL_A;
+    }
+
+    else if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && sf::Mouse::getPosition().x >= (900 / RESOLUTION_X) &&
+        sf::Mouse::getPosition().x <= (1000.0 / RESOLUTION_X) && sf::Mouse::getPosition().y >= (530 / RESOLUTION_Y) &&
+        sf::Mouse::getPosition().y <= (550 / RESOLUTION_Y)) {
+
+        window->clear(sf::Color::Black);
+        *option = Options::LEVEL_B;
     }
 }
 

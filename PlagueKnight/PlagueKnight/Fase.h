@@ -20,7 +20,7 @@ using namespace Inimigos;
 
 namespace Fases {
 	class Fase : Ente {
-	private:
+	protected:
 		Gerenciador_Colisoes* gc;
 		ListaEntidades* listaEntidades;
 		Lista<Inimigo> ListEnemies;
@@ -33,13 +33,8 @@ namespace Fases {
 
 	public:
 		Fase();
-		Fase(Jogador* jogador1, sf::RenderWindow* window);
 		~Fase();
 		ListaEntidades* getEntityList() { return listaEntidades; }
-		void displayFase();
-		void inicializeElementos();
-		void desenhaPlataforma();
-		void inicializaPlataforma();
 		Lista<Obstaculo> getObstaculos() { return LO; }
 	};
 }
