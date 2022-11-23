@@ -21,20 +21,27 @@ using namespace Inimigos;
 namespace Fases {
 	class Fase : Ente {
 	protected:
+		Lista<Entidade> listaEntidades;
 		Gerenciador_Colisoes* gc;
-		ListaEntidades* listaEntidades;
-		Lista<Inimigo> ListEnemies;
-		Lista<Obstaculo> LO;
-		Lista<Projetil> listProjetil;
+		Lista<Projetil> listaProjeteis;
+		Lista<Inimigo> listaInimigos;
+		//ListaEntidades* listaEntidades;
+		//Lista<Inimigo> ListEnemies;
+		//Lista<Obstaculo> LO;
+		//Lista<Projetil> listProjetil;
 		//Plataforma plataforma;
 		Jogador* jogador1;
 		Projetil* bolinha;
 		sf::RenderWindow* window;
+		int qtdInimigos;
 
 	public:
 		Fase();
 		~Fase();
-		ListaEntidades* getEntityList() { return listaEntidades; }
-		Lista<Obstaculo> getObstaculos() { return LO; }
+		Lista<Entidade>* getEntityList() { return &listaEntidades; }
+		//Lista<Obstaculo> getObstaculos() { return listaEntidades->LOs; }
+		void setGC(Gerenciador_Colisoes* _gc) { this->gc = _gc; }
+		int getQtdInimigos() { return qtdInimigos; }
+		void setQtdInimigos(int _qtdInimigos) { qtdInimigos = _qtdInimigos; }
 	};
 }

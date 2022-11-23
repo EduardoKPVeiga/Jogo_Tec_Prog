@@ -1,23 +1,25 @@
 #include "Projetil.h"
 
 Projetil::Projetil() {
-	body.setFillColor(sf::Color::Magenta);
-	body.setSize(sf::Vector2f(5.f, 5.f));
-	projetilAtivo = false;
+	inicializar(NULL);
 	//time(&tempoAnte);
 	//time(&tempoAtual);
 }
 
 Projetil::Projetil(sf::RenderWindow* _window) {
-	setWindow(_window);
-	body.setFillColor(sf::Color::Magenta);
-	body.setSize(sf::Vector2f(10.f, 7.f));
-	projetilAtivo = false;
+	inicializar(_window);
 	//time(&tempoAnte);
 	//time(&tempoAtual);
 }
 
 Projetil::~Projetil() {}
+
+void Projetil::inicializar(sf::RenderWindow* _window) {
+	window = _window;
+	body.setFillColor(sf::Color::Magenta);
+	body.setSize(sf::Vector2f(10.f, 7.f));
+	projetilAtivo = false;
+}
 
 void Projetil::setDano(int _dano) {
 	dano = _dano;

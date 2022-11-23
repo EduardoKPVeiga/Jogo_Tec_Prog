@@ -2,6 +2,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Ente.h"
+
 class Gerenciador_Colisoes;
 class Entidade : public Ente {
 private:
@@ -12,6 +13,7 @@ protected:
 	float obstSize;
 	float gravidade = 10.0f;
 	bool empuxo = false;
+	bool atirador;
 	sf::RectangleShape body;
 	sf::RenderWindow* window;
 
@@ -28,5 +30,8 @@ public:
 	float getPosX();
 	float getPosY();
 	virtual void mover(float _posX, float _posY, int _direcao) {}
+	void setAtirador(bool _atirador) { atirador = _atirador; }
+	bool getAtirador() { return atirador; }
+	virtual void atirar() {}
 };
 

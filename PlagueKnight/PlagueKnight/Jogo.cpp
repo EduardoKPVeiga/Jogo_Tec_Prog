@@ -1,7 +1,7 @@
 #include "Jogo.h"
 
 Jogo::Jogo() :
-    window(sf::VideoMode(1100 / RESOLUTION_X, 720 / RESOLUTION_Y), "Plague Knight", sf::Style::Close)
+    window(sf::VideoMode(float(1100 / RESOLUTION_X), float(720 / RESOLUTION_Y)), "Plague Knight", sf::Style::Close)
 {   
     //opcao = Opcao::MENU;
     jogador.setWindow(&window);
@@ -27,6 +27,10 @@ void Jogo::executar() {
 
         else if (option == Options::LEVEL_A) {
             fase1->displayFase();
+        }
+
+        else if(option == Options::LEVEL_B) {
+            fase2->displayFase();
         }
         
         window.display();

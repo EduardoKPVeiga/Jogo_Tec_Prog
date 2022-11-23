@@ -1,9 +1,17 @@
 #include "Personagem.h"
 
 namespace Personagens {
-    Personagem::Personagem() {}
+    Personagem::Personagem() {
+        inicializar();
+    }
 
     Personagem::~Personagem() {}
+
+    void Personagem::inicializar() {
+        num_vidas = 0;
+        alturaMaxPulo = 0;
+        direcaoDisparo = 0;
+    }
 
     int Personagem::getVidas() {
         return num_vidas;
@@ -13,9 +21,9 @@ namespace Personagens {
         this->velocidade = v;
     }
 
-	void Personagem::atirar(Projetil* bolinha) {
-		if (!(bolinha->getProjetilAtivo())) { // Se a bolinha nao foi atirada
-			bolinha->setProjetilAtivo(true);
+	void Personagem::atirar() {
+		if (!(projetil->getProjetilAtivo())) { // Se a bolinha nao foi atirada
+            projetil->setProjetilAtivo(true);
 		}
 	}
 }

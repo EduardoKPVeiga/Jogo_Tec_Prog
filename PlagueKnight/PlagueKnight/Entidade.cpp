@@ -6,6 +6,7 @@ Entidade::Entidade() :body(sf::Vector2f(25.f, 25.f)) {
 	posX = NULL;
 	posY = NULL;
 	window = NULL;
+	atirador = false;
 }
 
 Entidade::~Entidade() {}

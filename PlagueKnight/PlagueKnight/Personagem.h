@@ -13,16 +13,20 @@ namespace Personagens {
         float alturaMaxPulo;
         bool empuxo = false;
         int direcaoDisparo;
+        Projetil* projetil;
 
     public:
         Personagem();
         ~Personagem();
+        void inicializar();
         int getVidas();
         int getDirection() { return direcao; }
         void setVelocidade(float v);
         void setFlyingSpeed(float s);
-        void atirar(Projetil* bolinha);
+        virtual void atirar();
         int getDirecaoDisparo() { return direcaoDisparo; }
+        virtual void mover(float _posX, float _posY, int _direcao) {}
+        void setProjetil(Projetil* _projetil) { projetil = _projetil; }
     };
 }
 

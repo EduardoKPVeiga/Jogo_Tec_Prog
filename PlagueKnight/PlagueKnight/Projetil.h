@@ -21,6 +21,8 @@ public:
 	Projetil(sf::RenderWindow* _window);
 	~Projetil();
 
+	void inicializar(sf::RenderWindow* _window);
+
 	void setDano(int _dano);
 	int getDano();
 

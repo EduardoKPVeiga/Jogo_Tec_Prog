@@ -17,7 +17,9 @@ namespace Inimigos {
         Inimigo(float x, float y, sf::RenderWindow* window);
         Inimigo(float x, float y, sf::RenderWindow* window, Jogador* _jogador);
         ~Inimigo();
-        void mover();
+        void inicializar(float x, float y, sf::RenderWindow* w, Jogador* _jogador);
+        void mover(float _posX, float _posY, int _direcao);
         void setFlyingSpeed(float s);
+        virtual void atirar();
     };
 }

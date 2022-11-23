@@ -5,6 +5,7 @@
 
 #include "Fase.h"
 #include "Fase_A.h"
+#include "Fase_B.h"
 #include "Menu.h"
 #include "Jogador.h"
 #include "Options.h"
@@ -20,6 +21,8 @@ private:
     sf::RenderWindow window;
     Jogador jogador;
     Fase_A* fase1 = new Fase_A(&jogador, &window);
+    Fase_B* fase2 = new Fase_B(&jogador, &window);
+
 public:
     Jogo();
     ~Jogo();

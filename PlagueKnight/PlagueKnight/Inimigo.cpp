@@ -1,31 +1,29 @@
 #include "Inimigo.h"
 
 namespace Inimigos {
-    Inimigo::Inimigo()
-    {
+    Inimigo::Inimigo() {
         //body.setFillColor(sf::Color::Red);
-        body.setPosition(0.f, 0.f);
-    }
-    Inimigo::Inimigo(float x, float y, sf::RenderWindow* w)
-    {
-        body.setFillColor(sf::Color::Red);
-        body.setPosition(x, y);
-        this->window = w;
+        inicializar(0.f, 0.f, NULL, NULL);
     }
 
-    Inimigo::Inimigo(float x, float y, sf::RenderWindow* w, Jogador* _jogador)
-    {
+    Inimigo::Inimigo(float x, float y, sf::RenderWindow* w) {
+        inicializar(x, y, w, NULL);
+    }
+
+    Inimigo::Inimigo(float x, float y, sf::RenderWindow* w, Jogador* _jogador) {
+        inicializar(x, y, w, _jogador);
+    }
+
+    Inimigo::~Inimigo() {}
+
+    void Inimigo::inicializar(float x, float y, sf::RenderWindow* w, Jogador* _jogador) {
         body.setFillColor(sf::Color::Red);
         body.setPosition(x, y);
         this->window = w;
         jogador = _jogador;
     }
 
-    Inimigo::~Inimigo()
-    {
-    }
-
-    void Inimigo::mover()
+    void Inimigo::mover(float _posX, float _posY, int _direcao)
     {
         sf::Vector2u size = window->getSize();
         sf::Vector2f enemyPosition = body.getPosition();
@@ -79,4 +77,6 @@ namespace Inimigos {
     {
         this->flyingSpeed = s;
     }
+
+    void Inimigo::atirar() {}
 }

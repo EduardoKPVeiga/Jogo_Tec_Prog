@@ -1,48 +1,72 @@
 #include "Gerenciador_Colisoes.h"
 #include "Plataforma.h"
+
 using namespace std;
 
-Gerenciador_Colisoes::Gerenciador_Colisoes()
-{
-    body.setFillColor(sf::Color::Green);
-    body.setPosition(100, 100);
+Gerenciador_Colisoes::Gerenciador_Colisoes() {
+    inicializar(NULL);
+    //body.setFillColor(sf::Color::Green);
+    //body.setPosition(100, 100);
 }
 
-Gerenciador_Colisoes::Gerenciador_Colisoes(Lista<Obstaculo>* _LOs, Lista<Inimigo>*_ListEnemies, Lista<Projetil>* _listProjetil)
-{
-    LOs = _LOs;
-    ListEnemies = _ListEnemies;
-    listProjetil = _listProjetil;
-}
-Gerenciador_Colisoes::~Gerenciador_Colisoes()
-{
+Gerenciador_Colisoes::Gerenciador_Colisoes(Lista<Entidade>* _listaEntidades) {
+    inicializar(_listaEntidades);
 }
 
+Gerenciador_Colisoes::~Gerenciador_Colisoes() {}
+
+void Gerenciador_Colisoes::inicializar(Lista<Entidade>* _listaEntidades) {
+    listaEntidades = _listaEntidades;
+    j1 = NULL;
+}
+
+bool Gerenciador_Colisoes::colidiuJogador(sf::RectangleShape _body, int direction) {
+    sf::RectangleShape body_futuro;
+    body_futuro = body;
+
+    if (direction == 4) {
+        body_futuro.move(0.f, gravidade);
+    }
+
+    else if (direction == 3) {
+        body_futuro.move(0.f, -gravidade);
+    }
+
+    else if (direction == 2) {
+        body_futuro.move(5.000022f, 0.f);
+    }
+
+    if (direction == 1) {
+        body_futuro.move(-5.000022f, 0.f);
+    }
+
+    if (listaEntidades->getLength() > 0) {
+        for (int i = 0; i < listaEntidades->getLength(); i++) {
+
+            if (body_futuro.getGlobalBounds().intersects(listaEntidades->getItem(i)->getBodyGlobalBounds()))
+                return true;
+        }
+    }
+
+    else
+        cout << "LISTA VAZIA" << endl;
+
+    return false;
+}
+
+void Gerenciador_Colisoes::setListaEntidades(Lista<Entidade>* _listaEntidades) {
+    this->listaEntidades = _listaEntidades;
+    if (!listaEntidades)
+        cout << "ERRO: lista de entidades NULL." << endl;
+}
+
+Lista<Entidade>* Gerenciador_Colisoes::getListaEntidades() {
+    return listaEntidades;
+}
+
+/*
 void Gerenciador_Colisoes::setLO(Plataforma *obstaculo)
 {
     LOs->push(obstaculo);
 }
-
-bool Gerenciador_Colisoes::colidiuJogador(sf::RectangleShape body, int direction)
-{
-    sf::RectangleShape body_futuro;
-    body_futuro = body;
-
-    if (direction == 4)
-    {
-        body_futuro.move(0.f, (gravidade / 2));
-    }
-    if (LOs->getLength() > 0)
-    {
-        for (int i = 0; i < LOs->getLength(); i++)
-        {
-           
-            if (body_futuro.getGlobalBounds().intersects(LOs->getItem(i)->getBodyGlobalBounds()))
-                return true;
-            
-        }
-    }
-    else
-        cout << "LISTA VAZIA" << endl;
-        return false;
-}
+//*/
