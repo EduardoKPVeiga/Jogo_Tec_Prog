@@ -38,7 +38,7 @@ namespace Jogadores {
                 body.move(sf::Vector2f(0, vel_pulo));
         }
         direcao = 4;
-        if (gc->colidiuJogador(body, 4)==false) {
+        if (gc->colidiuJogador(body, 4) == false) {
             receberGravidade(false);
             direcao = 4;
 

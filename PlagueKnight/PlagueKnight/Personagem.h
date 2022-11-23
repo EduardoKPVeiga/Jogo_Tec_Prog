@@ -22,7 +22,7 @@ namespace Personagens {
         int getVidas();
         int getDirection() { return direcao; }
         void setVelocidade(float v);
-        void setFlyingSpeed(float s);
+        virtual void setFlyingSpeed(float s) {}
         virtual void atirar();
         int getDirecaoDisparo() { return direcaoDisparo; }
         virtual void mover(float _posX, float _posY, int _direcao) {}

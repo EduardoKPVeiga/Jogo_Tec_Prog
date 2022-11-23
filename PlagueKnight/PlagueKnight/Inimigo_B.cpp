@@ -21,7 +21,6 @@ namespace Inimigos {
 		this->window = w;
 		this->jogador = _jogador;
 		atirador = false;
+		empuxo = true;
 	}
-
-	void Inimigo_B::atirar() {}
 }

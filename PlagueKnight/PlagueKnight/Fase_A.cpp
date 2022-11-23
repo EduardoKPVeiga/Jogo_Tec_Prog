@@ -77,10 +77,10 @@ namespace Fases {
     }
 
     void Fase_A::inicializaInimigos(Jogador* _jogador1, sf::RenderWindow* _window) {
-        Inimigo_B* inimigo1 = new Inimigo_B(0.f, 0.f, window, jogador1);
-        Inimigo_B* inimigo2 = new Inimigo_B((650.f / RESOLUTION_X), window->getSize().y - 25, window, jogador1);
-        Inimigo_B* inimigo3 = new Inimigo_B((400.f / RESOLUTION_X), window->getSize().y - 25, window, jogador1);
-        Inimigo_A* inimigo4 = new Inimigo_A((10.f / RESOLUTION_X), window->getSize().y - 25, window, jogador1);
+        Inimigo_B* inimigo1 = new Inimigo_B(0.f, window->getSize().y - 50, window, jogador1);
+        Inimigo_B* inimigo2 = new Inimigo_B((650.f / RESOLUTION_X), window->getSize().y - 50, window, jogador1);
+        Inimigo_B* inimigo3 = new Inimigo_B((400.f / RESOLUTION_X), window->getSize().y - 50, window, jogador1);
+        Inimigo_A* inimigo4 = new Inimigo_A((10.f / RESOLUTION_X), window->getSize().y - 50, window, jogador1);
 
         inimigo1->setAtirador(true);
         inimigo2->setAtirador(true);
@@ -101,7 +101,10 @@ namespace Fases {
 
     void Fase_A::inicializaProjeteis() {
         bolinha = new Projetil(window);
+        //*
         listaEntidades.push(bolinha);
+        listaProjeteis.push(bolinha);
+        //*/
 
         // Projeteis de inimigos B
         for (int i = 0; i < 3; i++) {
@@ -131,31 +134,37 @@ namespace Fases {
 
         //listaEntidades->moveEntities(jogador1->getPosX(), jogador1->getPosY(), jogador1->getDirecaoDisparo());
 
-        int _qtdInimigos = 0;
-        for (int i = 0; i < listaEntidades.getLength(); i++) {
-            // Entidades se movendo
-            listaEntidades.getItem(i)->mover(jogador1->getPosX(), jogador1->getPosY(), jogador1->getDirecaoDisparo());
-
-            // Inimigos atirando
-            if (listaEntidades.getItem(i)->getAtirador()) {
-                if (_qtdInimigos <= qtdInimigos) {
+        // Inimigos atirando
+        int j = 0;
+        for (int i = 0; i < listaInimigos.getLength(); i++) {
+            listaInimigos.getItem(i)->mover(0.f, 0.f, 0.f);
+            if (listaInimigos.getItem(i)->getAtirador()) {
+                if (listaProjeteis.getLength() <= qtdInimigos) {
                     listaEntidades.getItem(i)->atirar();
-                    _qtdInimigos++;
                 }
 
                 else {
                     cout << "ERRO: quantidade de projeteis insuficiente!" << endl;
                 }
-            }
 
-            // Desenhando as entidades
+                // Movendo projeteis
+                listaProjeteis.getItem(j)->mover(listaInimigos.getItem(i)->getPosX(), listaInimigos.getItem(i)->getPosY(), listaInimigos.getItem(i)->getDirecaoDisparo());
+                j++;
+            }
+        }
+
+        // Desenhando as entidades
+        for (int i = 0; i < listaEntidades.getLength(); i++) {
             listaEntidades.getItem(i)->draw();
         }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
             jogador1->atirar();
 
+        //bolinha->mover(jogador1->getPosX(), jogador1->getPosY(), jogador1->getDirecaoDisparo());
+
         jogador1->draw();
+        //bolinha->draw();
         
         //listaEntidades->drawEntities(window);
 
@@ -168,12 +177,4 @@ namespace Fases {
         text.setFillColor(sf::Color::White);
         window->draw(text);
     }
-    /*
-    void Fase_A::desenhaPlataforma() {
-        for (int i = 0; i < LO.getLength(); i++)
-        {
-            LO.getItem(i)->draw();
-        }
-    }
-    //*/
 }

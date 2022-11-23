@@ -23,5 +23,6 @@ namespace Inimigos {
 		this->window = _w;
 		this->jogador = _jogador;
 		atirador = true;
+		empuxo = true;
 	}
 }
