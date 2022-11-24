@@ -12,6 +12,7 @@ namespace Fases {
 		void inicializaPlataforma();
 		void inicializaInimigos(Jogador* _jogador1, sf::RenderWindow* _window);
 		void inicializaProjeteis();
+		void inicializaArbustos();
     };
 }
 

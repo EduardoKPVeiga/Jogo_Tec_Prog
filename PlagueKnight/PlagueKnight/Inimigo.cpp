@@ -21,6 +21,7 @@ namespace Inimigos {
         body.setPosition(x, y);
         this->window = w;
         jogador = _jogador;
+        danoso = true;
     }
 
     void Inimigo::mover(float _posX, float _posY, int _direcao)

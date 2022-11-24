@@ -22,6 +22,7 @@ namespace Fases {
 		inicializaPlataforma();
 		inicializaInimigos(_jogador1, _window);
 		inicializaProjeteis();
+		inicializaArbustos();
 
 		jogador1->setProjetil(bolinha);
 
@@ -117,5 +118,13 @@ namespace Fases {
 			}
 		}
 		//*/
+	}
+
+	void Fase_B::inicializaArbustos() {
+		Arbusto* arbusto1 = new Arbusto(60.f , window->getSize().y - 50, window);
+		Arbusto* arbusto2 = new Arbusto(350.f , window->getSize().y - 50, window);
+
+		listaEntidades.push(arbusto1);
+		listaEntidades.push(arbusto2);
 	}
 }

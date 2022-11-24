@@ -11,6 +11,7 @@
 #include "Plataforma.h"
 #include "Resolucao.h"
 #include "Projetil.h"
+#include "Arbusto.h"
 
 #include <vector>
 #include <SFML/Graphics.hpp>

@@ -6,6 +6,7 @@ namespace Jogadores {
         num_vidas = 3;
         body.setFillColor(sf::Color::Blue);
         gc = NULL;
+        danoso = false;
         //gc = new Gerenciador_Colisoes();
     }
 

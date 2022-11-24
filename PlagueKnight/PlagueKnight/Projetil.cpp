@@ -19,6 +19,8 @@ void Projetil::inicializar(sf::RenderWindow* _window) {
 	body.setFillColor(sf::Color::Magenta);
 	body.setSize(sf::Vector2f(10.f, 7.f));
 	projetilAtivo = false;
+	danoso = true;
+	atirador = false;
 }
 
 void Projetil::setDano(int _dano) {
