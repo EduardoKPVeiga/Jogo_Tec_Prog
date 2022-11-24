@@ -134,6 +134,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Fase_B.cpp" />
+    <ClCompile Include="Inimigo_C.cpp" />
     <ClCompile Include="ListaEntidades.cpp" />
     <ClCompile Include="Gerenciador_Colisoes.cpp" />
     <ClCompile Include="Inimigo_A.cpp" />
@@ -155,6 +156,7 @@
   <ItemGroup>
     <ClInclude Include="Elemento.h" />
     <ClInclude Include="Fase_B.h" />
+    <ClInclude Include="Inimigo_C.h" />
     <ClInclude Include="ListaEntidades.h" />
     <ClInclude Include="Gerenciador_Colisoes.h" />
     <ClInclude Include="Inimigo_A.h" />

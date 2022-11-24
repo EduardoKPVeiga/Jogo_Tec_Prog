@@ -88,28 +88,24 @@ namespace Fases {
             int nivelPlataforma = 1 + (rand() % 3);
             if(nivelPlataforma == 1) {
                 inimigoA = new Inimigo_A(0.f + 100 * i, window->getSize().y - 50, window, jogador1);
-                inimigoA->setAtirador(false);
                 listaEntidades.push(inimigoA);
                 listaInimigos.push(inimigoA);
             }
 
             else if (nivelPlataforma == 2) {
                 inimigoA = new Inimigo_A(0.f + 100 * i, window->getSize().y - 175, window, jogador1);
-                inimigoA->setAtirador(false);
                 listaEntidades.push(inimigoA);
                 listaInimigos.push(inimigoA);
             }
 
             else if (nivelPlataforma == 3) {
                 inimigoA = new Inimigo_A(0.f + 100 * i, window->getSize().y - 300, window, jogador1);
-                inimigoA->setAtirador(false);
                 listaEntidades.push(inimigoA);
                 listaInimigos.push(inimigoA);
             }
 
             else if (nivelPlataforma == 4) {
                 inimigoA = new Inimigo_A(0.f + 100 * i, window->getSize().y - 400, window, jogador1);
-                inimigoA->setAtirador(false);
                 listaEntidades.push(inimigoA);
                 listaInimigos.push(inimigoA);
             }
@@ -127,28 +123,24 @@ namespace Fases {
             int nivelPlataforma = 1 + (rand() % 3);
             if (nivelPlataforma == 1) {
                 inimigoB = new Inimigo_B(0.f + 100 * i, window->getSize().y - 50, window, jogador1);
-                inimigoB->setAtirador(true);
                 listaEntidades.push(inimigoB);
                 listaInimigos.push(inimigoB);
             }
 
             else if (nivelPlataforma == 2) {
                 inimigoB = new Inimigo_B(0.f + 100 * i, window->getSize().y - 175, window, jogador1);
-                inimigoB->setAtirador(true);
                 listaEntidades.push(inimigoB);
                 listaInimigos.push(inimigoB);
             }
 
             else if (nivelPlataforma == 3) {
                 inimigoB = new Inimigo_B(0.f + 100 * i, window->getSize().y - 300, window, jogador1);
-                inimigoB->setAtirador(true);
                 listaEntidades.push(inimigoB);
                 listaInimigos.push(inimigoB);
             }
 
             else if (nivelPlataforma == 4) {
                 inimigoB = new Inimigo_B(0.f + 100 * i, window->getSize().y - 400, window, jogador1);
-                inimigoB->setAtirador(true);
                 listaEntidades.push(inimigoB);
                 listaInimigos.push(inimigoB);
             }

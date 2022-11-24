@@ -22,7 +22,8 @@ namespace Inimigos {
 		body.setPosition(_x, _y);
 		this->window = _w;
 		this->jogador = _jogador;
-		atirador = true;
+		atirador = false;
 		empuxo = true;
+		num_vidas = 1;
 	}
 }

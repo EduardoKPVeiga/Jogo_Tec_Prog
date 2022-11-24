@@ -6,6 +6,7 @@
 #include "Inimigo.h"
 #include "Inimigo_A.h"
 #include "Inimigo_B.h"
+#include "Inimigo_C.h"
 #include "ListaEntidades.h"
 #include "Plataforma.h"
 #include "Resolucao.h"

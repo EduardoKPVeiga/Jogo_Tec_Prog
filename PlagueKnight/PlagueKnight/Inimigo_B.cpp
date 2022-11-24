@@ -20,7 +20,8 @@ namespace Inimigos {
 		body.setPosition(x, y);
 		this->window = w;
 		this->jogador = _jogador;
-		atirador = false;
+		atirador = true;
 		empuxo = true;
+		num_vidas = 1;
 	}
 }

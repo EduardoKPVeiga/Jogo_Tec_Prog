@@ -1,73 +1,77 @@
 #include "Fase.h"
 
 namespace Fases {
-    Fase::Fase() {
-        gc = new Gerenciador_Colisoes();
-    }
+	Fase::Fase() {
+		gc = new Gerenciador_Colisoes();
+	}
 
-    Fase::~Fase() {}
+	Fase::~Fase() {}
 
-    void Fase::displayFase() {
-        sf::Font font;
-        if (!font.loadFromFile("resources/arial.ttf"))
-        {
-            exit(1);
-        }
-        sf::Texture texture;
-        sf::Text text;
+	void Fase::displayFase() {
+		sf::Font font;
+		if (!font.loadFromFile("resources/arial.ttf"))
+		{
+			exit(1);
+		}
+		sf::Texture texture;
+		sf::Text text;
 
-        //plataforma.setWindow(window);
+		//plataforma.setWindow(window);
 
-        // Display
-        window->clear(sf::Color::Black);
+		// Display
+		window->clear(sf::Color::Black);
 
-        jogador1->mover();
+		jogador1->mover();
 
-        //listaEntidades->moveEntities(jogador1->getPosX(), jogador1->getPosY(), jogador1->getDirecaoDisparo());
+		//listaEntidades->moveEntities(jogador1->getPosX(), jogador1->getPosY(), jogador1->getDirecaoDisparo());
 
-        // Inimigos atirando
-        int j = 0;
-        for (int i = 0; i < listaInimigos.getLength(); i++) {
+		// Inimigos atirando
+		int j = 0;
+		for (int i = 0; i < listaInimigos.getLength(); i++) {
 
-            // Movendo inimigos
-            listaInimigos.getItem(i)->mover(0.f, 0.f, 0.f);
-            if (listaInimigos.getItem(i)->getAtirador()) {
-                if (listaProjeteis.getLength() <= qtdInimigos) {
-                    listaInimigos.getItem(i)->atirar();
-                }
+			// Movendo inimigos
+			listaInimigos.getItem(i)->mover(0.f, 0.f, 0.f);
 
-                else {
-                    cout << "ERRO: quantidade de projeteis insuficiente!" << endl;
-                }
+			// Inimigos atirando
+			if (listaProjeteis.getLength() != 0) {
+				if (listaInimigos.getItem(i)->getAtirador()) {
+					if (listaProjeteis.getLength() <= qtdInimigos) {
+						listaInimigos.getItem(i)->atirar();
+					}
 
-                // Movendo projeteis
-                listaProjeteis.getItem(j)->mover(listaInimigos.getItem(i)->getPosX(), listaInimigos.getItem(i)->getPosY(), listaInimigos.getItem(i)->getDirecaoDisparo());
-                j++;
-            }
-        }
+					else {
+						cout << "ERRO: quantidade de projeteis insuficiente!" << endl;
+					}
 
-        // Desenhando as entidades
-        for (int i = 0; i < listaEntidades.getLength(); i++) {
-            listaEntidades.getItem(i)->draw();
-        }
+					// Movendo projeteis
+					listaProjeteis.getItem(j)->mover(listaInimigos.getItem(i)->getPosX(), listaInimigos.getItem(i)->getPosY(), listaInimigos.getItem(i)->getDirecaoDisparo());
+					j++;
+				}
+			}
+		}
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-            jogador1->atirar();
+		// Desenhando as entidades
+		for (int i = 0; i < listaEntidades.getLength(); i++) {
+			listaEntidades.getItem(i)->draw();
+		}
 
-        bolinha->mover(jogador1->getPosX(), jogador1->getPosY(), jogador1->getDirecaoDisparo());
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+			jogador1->atirar();
 
-        jogador1->draw();
-        bolinha->draw();
+		bolinha->mover(jogador1->getPosX(), jogador1->getPosY(), jogador1->getDirecaoDisparo());
 
-        //listaEntidades->drawEntities(window);
+		jogador1->draw();
+		bolinha->draw();
 
-        //this->desenhaPlataforma();
+		//listaEntidades->drawEntities(window);
 
-        // Show player's life
-        text.setFont(font);
-        text.setString("Vidas: " + std::to_string(jogador1->getVidas()) + " Enemies: " + std::to_string(qtdInimigos));
-        text.setCharacterSize(24);
-        text.setFillColor(sf::Color::White);
-        window->draw(text);
-    }
+		//this->desenhaPlataforma();
+
+		// Show player's life
+		text.setFont(font);
+		text.setString("Vidas: " + std::to_string(jogador1->getVidas()) + " Enemies: " + std::to_string(qtdInimigos));
+		text.setCharacterSize(24);
+		text.setFillColor(sf::Color::White);
+		window->draw(text);
+	}
 }
