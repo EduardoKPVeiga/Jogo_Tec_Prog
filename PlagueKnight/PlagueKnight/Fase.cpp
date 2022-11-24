@@ -54,10 +54,10 @@ namespace Fases {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
             jogador1->atirar();
 
-        //bolinha->mover(jogador1->getPosX(), jogador1->getPosY(), jogador1->getDirecaoDisparo());
+        bolinha->mover(jogador1->getPosX(), jogador1->getPosY(), jogador1->getDirecaoDisparo());
 
         jogador1->draw();
-        //bolinha->draw();
+        bolinha->draw();
 
         //listaEntidades->drawEntities(window);
 

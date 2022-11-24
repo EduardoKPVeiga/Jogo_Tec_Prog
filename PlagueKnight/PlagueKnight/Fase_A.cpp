@@ -85,6 +85,7 @@ namespace Fases {
         inimigo1->setAtirador(true);
         inimigo2->setAtirador(true);
         inimigo3->setAtirador(true);
+        inimigo4->setAtirador(false);
 
         listaEntidades.push(inimigo1);
         listaEntidades.push(inimigo2);
@@ -101,7 +102,7 @@ namespace Fases {
 
     void Fase_A::inicializaProjeteis() {
         bolinha = new Projetil(window);
-        //*
+        /*
         listaEntidades.push(bolinha);
         listaProjeteis.push(bolinha);
         //*/
@@ -111,10 +112,15 @@ namespace Fases {
             Projetil* projetil = new Projetil(window);
             listaEntidades.push(projetil);
             listaProjeteis.push(projetil);
+        }
 
+        int j = 0;
+        for (int i = 0; i < listaInimigos.getLength(); i++) {
             if (listaInimigos.getItem(i)->getAtirador()) {
-                listaInimigos.getItem(i)->setProjetil(projetil);
+                listaInimigos.getItem(i)->setProjetil(listaProjeteis.getItem(j));
+                j++;
             }
         }
+
     }
 }
