@@ -43,5 +43,6 @@ namespace Fases {
 		void setGC(Gerenciador_Colisoes* _gc) { this->gc = _gc; }
 		int getQtdInimigos() { return qtdInimigos; }
 		void setQtdInimigos(int _qtdInimigos) { qtdInimigos = _qtdInimigos; }
+		void displayFase();
 	};
 }

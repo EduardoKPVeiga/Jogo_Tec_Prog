@@ -7,7 +7,6 @@ namespace Fases {
 		Fase_A();
 		Fase_A(Jogador* jogador1, sf::RenderWindow* window);
 		~Fase_A();
-		void displayFase();
 		void inicializeElementos(Jogador* _jogador1, sf::RenderWindow* _window);
 		void inicializaPlataforma();
 		void inicializaInimigos(Jogador* _jogador1, sf::RenderWindow* _window);

@@ -26,10 +26,18 @@ void Jogo::executar() {
         }
 
         else if (option == Options::LEVEL_A) {
+            if (!fase1) {
+                fase1 = new Fase_A(&jogador, &window);
+            }
+
             fase1->displayFase();
         }
 
         else if(option == Options::LEVEL_B) {
+            if (!fase2) {
+                fase2 = new Fase_B(&jogador, &window);
+            }
+
             fase2->displayFase();
         }
         

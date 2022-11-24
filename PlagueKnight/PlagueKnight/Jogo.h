@@ -20,8 +20,8 @@ private:
     Menu menu;
     sf::RenderWindow window;
     Jogador jogador;
-    Fase_A* fase1 = new Fase_A(&jogador, &window);
-    Fase_B* fase2 = new Fase_B(&jogador, &window);
+    Fase_A* fase1;
+    Fase_B* fase2;
 
 public:
     Jogo();

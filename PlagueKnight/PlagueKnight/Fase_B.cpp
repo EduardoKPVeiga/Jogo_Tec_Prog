@@ -38,10 +38,10 @@ namespace Fases {
     }
 
     void Fase_B::inicializaInimigos(Jogador* _jogador1, sf::RenderWindow* _window) {
-        Inimigo_B* inimigo1 = new Inimigo_B(0.f, 0.f, window, jogador1);
-        Inimigo_B* inimigo2 = new Inimigo_B((650.f / RESOLUTION_X), window->getSize().y - 25, window, jogador1);
-        Inimigo_B* inimigo3 = new Inimigo_B((400.f / RESOLUTION_X), window->getSize().y - 25, window, jogador1);
-        Inimigo_A* inimigo4 = new Inimigo_A((10.f / RESOLUTION_X), window->getSize().y - 25, window, jogador1);
+        Inimigo_B* inimigo1 = new Inimigo_B(0.f, window->getSize().y - 50, window, jogador1);
+        Inimigo_B* inimigo2 = new Inimigo_B((650.f / RESOLUTION_X), window->getSize().y - 50, window, jogador1);
+        Inimigo_B* inimigo3 = new Inimigo_B((400.f / RESOLUTION_X), window->getSize().y - 50, window, jogador1);
+        Inimigo_A* inimigo4 = new Inimigo_A((10.f / RESOLUTION_X), window->getSize().y - 50, window, jogador1);
 
         inimigo1->setAtirador(true);
         inimigo2->setAtirador(true);
@@ -63,6 +63,7 @@ namespace Fases {
     void Fase_B::inicializaProjeteis() {
         bolinha = new Projetil(window);
         listaEntidades.push(bolinha);
+        listaProjeteis.push(bolinha);
 
         // Projeteis de inimigos B
         for (int i = 0; i < 3; i++) {
@@ -70,71 +71,9 @@ namespace Fases {
             listaEntidades.push(projetil);
             listaProjeteis.push(projetil);
 
-            listaInimigos.getItem(i)->setProjetil(projetil);
-        }
-    }
-
-    void Fase_B::displayFase() {
-        sf::Font font;
-        if (!font.loadFromFile("resources/arial.ttf"))
-        {
-            exit(1);
-        }
-        sf::Texture texture;
-        sf::Text text;
-
-        //plataforma.setWindow(window);
-
-        // Display
-        window->clear(sf::Color::Black);
-
-        jogador1->mover();
-
-        //listaEntidades->moveEntities(jogador1->getPosX(), jogador1->getPosY(), jogador1->getDirecaoDisparo());
-
-        int _qtdInimigos = 0;
-        for (int i = 0; i < listaEntidades.getLength(); i++) {
-            // Entidades se movendo
-            listaEntidades.getItem(i)->mover(jogador1->getPosX(), jogador1->getPosY(), jogador1->getDirecaoDisparo());
-
-            // Inimigos atirando
-            if (listaEntidades.getItem(i)->getAtirador()) {
-                if (_qtdInimigos <= qtdInimigos) {
-                    listaEntidades.getItem(i)->atirar();
-                    _qtdInimigos++;
-                }
-
-                else {
-                    cout << "ERRO: quantidade de projeteis insuficiente!" << endl;
-                }
+            if (listaInimigos.getItem(i)->getAtirador()) {
+                listaInimigos.getItem(i)->setProjetil(projetil);
             }
-
-            // Desenhando as entidades
-            listaEntidades.getItem(i)->draw();
-        }
-
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-            jogador1->atirar();
-
-        jogador1->draw();
-
-        //listaEntidades->drawEntities(window);
-
-        //this->desenhaPlataforma();
-
-        // Show player's life
-        text.setFont(font);
-        text.setString("Vidas: " + std::to_string(jogador1->getVidas()) + " Enemies: " + std::to_string(qtdInimigos));
-        text.setCharacterSize(24);
-        text.setFillColor(sf::Color::White);
-        window->draw(text);
-    }
-    /*
-    void Fase_A::desenhaPlataforma() {
-        for (int i = 0; i < LO.getLength(); i++)
-        {
-            LO.getItem(i)->draw();
         }
     }
-    //*/
 }
