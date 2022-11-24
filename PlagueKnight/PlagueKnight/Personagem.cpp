@@ -17,6 +17,10 @@ namespace Personagens {
         return num_vidas;
     }
 
+    void Personagem::setNumVidas(int _num_vidas) {
+        num_vidas = _num_vidas;
+    }
+
     void Personagem::setVelocidade(float v) {
         this->velocidade = v;
     }

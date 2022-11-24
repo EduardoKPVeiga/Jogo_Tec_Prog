@@ -5,6 +5,7 @@ Jogo::Jogo() :
 {   
     //opcao = Opcao::MENU;
     jogador.setWindow(&window);
+    jogador.setBodyPosition(50.f, window.getSize().y - 100.f);
     executar();
 }
 Jogo::~Jogo() { }

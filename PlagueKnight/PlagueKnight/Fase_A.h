@@ -1,5 +1,10 @@
 #pragma once
+
 #include "Fase.h"
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
 
 namespace Fases {
 	class Fase_A :public Fase {

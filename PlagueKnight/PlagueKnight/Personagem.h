@@ -20,6 +20,7 @@ namespace Personagens {
         ~Personagem();
         void inicializar();
         int getVidas();
+        void setNumVidas(int _num_vidas);
         int getDirection() { return direcao; }
         void setVelocidade(float v);
         virtual void setFlyingSpeed(float s) {}

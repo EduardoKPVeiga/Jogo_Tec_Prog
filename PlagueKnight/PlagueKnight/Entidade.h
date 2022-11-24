@@ -16,6 +16,7 @@ protected:
 	bool atirador;
 	sf::RectangleShape body;
 	sf::RenderWindow* window;
+	bool danoso;
 
 public:
 	Entidade();
@@ -33,5 +34,7 @@ public:
 	void setAtirador(bool _atirador) { atirador = _atirador; }
 	bool getAtirador() { return atirador; }
 	virtual void atirar() {}
+	void setDanoso(bool _danoso);
+	bool getDanoso();
 };
 

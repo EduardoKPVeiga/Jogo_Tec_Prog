@@ -1,7 +1,7 @@
 #include "Entidade.h"
 #include "Gerenciador_Colisoes.h"
 
-Entidade::Entidade() :body(sf::Vector2f(25.f, 25.f)) {
+Entidade::Entidade() : body(sf::Vector2f(25.f, 25.f)) {
 	obstSize = NULL;
 	posX = NULL;
 	posY = NULL;
@@ -29,4 +29,12 @@ float Entidade::getPosX() {
 
 float Entidade::getPosY() {
 	return body.getPosition().y;
+}
+
+void Entidade::setDanoso(bool _danoso) {
+	danoso = _danoso;
+}
+
+bool Entidade::getDanoso() {
+	return danoso;
 }

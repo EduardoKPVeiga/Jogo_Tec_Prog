@@ -77,6 +77,91 @@ namespace Fases {
     }
 
     void Fase_A::inicializaInimigos(Jogador* _jogador1, sf::RenderWindow* _window) {
+        unsigned seed = time(0);
+        srand(seed);
+        qtdInimigos = 0;
+        qtdInimigosAtiradores = 0;
+
+        for (int i = 0; i < (3 + (rand() % 3)); i++) {
+            Inimigo_A* inimigoA;
+
+            int nivelPlataforma = 1 + (rand() % 3);
+            if(nivelPlataforma == 1) {
+                inimigoA = new Inimigo_A(0.f + 100 * i, window->getSize().y - 50, window, jogador1);
+                inimigoA->setAtirador(false);
+                listaEntidades.push(inimigoA);
+                listaInimigos.push(inimigoA);
+            }
+
+            else if (nivelPlataforma == 2) {
+                inimigoA = new Inimigo_A(0.f + 100 * i, window->getSize().y - 175, window, jogador1);
+                inimigoA->setAtirador(false);
+                listaEntidades.push(inimigoA);
+                listaInimigos.push(inimigoA);
+            }
+
+            else if (nivelPlataforma == 3) {
+                inimigoA = new Inimigo_A(0.f + 100 * i, window->getSize().y - 300, window, jogador1);
+                inimigoA->setAtirador(false);
+                listaEntidades.push(inimigoA);
+                listaInimigos.push(inimigoA);
+            }
+
+            else if (nivelPlataforma == 4) {
+                inimigoA = new Inimigo_A(0.f + 100 * i, window->getSize().y - 400, window, jogador1);
+                inimigoA->setAtirador(false);
+                listaEntidades.push(inimigoA);
+                listaInimigos.push(inimigoA);
+            }
+
+            else {
+                cout << "ERRO: nivel de plataforma para inimigo invalido." << endl;
+            }
+
+            qtdInimigos++;
+        }
+
+        for (int i = 0; i < (3 + (rand() % 3)); i++) {
+            Inimigo_B* inimigoB;
+
+            int nivelPlataforma = 1 + (rand() % 3);
+            if (nivelPlataforma == 1) {
+                inimigoB = new Inimigo_B(0.f + 100 * i, window->getSize().y - 50, window, jogador1);
+                inimigoB->setAtirador(true);
+                listaEntidades.push(inimigoB);
+                listaInimigos.push(inimigoB);
+            }
+
+            else if (nivelPlataforma == 2) {
+                inimigoB = new Inimigo_B(0.f + 100 * i, window->getSize().y - 175, window, jogador1);
+                inimigoB->setAtirador(true);
+                listaEntidades.push(inimigoB);
+                listaInimigos.push(inimigoB);
+            }
+
+            else if (nivelPlataforma == 3) {
+                inimigoB = new Inimigo_B(0.f + 100 * i, window->getSize().y - 300, window, jogador1);
+                inimigoB->setAtirador(true);
+                listaEntidades.push(inimigoB);
+                listaInimigos.push(inimigoB);
+            }
+
+            else if (nivelPlataforma == 4) {
+                inimigoB = new Inimigo_B(0.f + 100 * i, window->getSize().y - 400, window, jogador1);
+                inimigoB->setAtirador(true);
+                listaEntidades.push(inimigoB);
+                listaInimigos.push(inimigoB);
+            }
+
+            else {
+                cout << "ERRO: nivel de plataforma para inimigo invalido." << endl;
+            }
+            
+            qtdInimigos++;
+            qtdInimigosAtiradores++;
+        }
+
+        /*
         Inimigo_B* inimigo1 = new Inimigo_B(0.f, window->getSize().y - 50, window, jogador1);
         Inimigo_B* inimigo2 = new Inimigo_B((650.f / RESOLUTION_X), window->getSize().y - 50, window, jogador1);
         Inimigo_B* inimigo3 = new Inimigo_B((400.f / RESOLUTION_X), window->getSize().y - 50, window, jogador1);
@@ -98,6 +183,7 @@ namespace Fases {
         listaInimigos.push(inimigo4);
 
         qtdInimigos = 4;
+        //*/
     }
 
     void Fase_A::inicializaProjeteis() {
@@ -108,7 +194,7 @@ namespace Fases {
         //*/
 
         // Projeteis de inimigos B
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < qtdInimigosAtiradores; i++) {
             Projetil* projetil = new Projetil(window);
             listaEntidades.push(projetil);
             listaProjeteis.push(projetil);
@@ -121,6 +207,5 @@ namespace Fases {
                 j++;
             }
         }
-
     }
 }

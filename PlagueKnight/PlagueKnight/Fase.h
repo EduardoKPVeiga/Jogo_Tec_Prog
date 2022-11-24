@@ -34,6 +34,7 @@ namespace Fases {
 		Projetil* bolinha;
 		sf::RenderWindow* window;
 		int qtdInimigos;
+		int qtdInimigosAtiradores;
 
 	public:
 		Fase();

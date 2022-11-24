@@ -21,21 +21,28 @@ namespace Jogadores {
         sf::Vector2f tamanhoJogador = body.getSize();
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && posJogador.x < (tamanho.x - tamanhoJogador.x)) {
-             body.move(sf::Vector2f(velocidade, 0.f));
+            if (gc->colidiuJogador(body, 1) == false) {
+                body.move(sf::Vector2f(velocidade, 0.f));
+            }
              direcao = 1;
              direcaoDisparo = 1;
         }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && posJogador.x > 0) {
-            body.move(sf::Vector2f(-velocidade, 0.f));
+            if (gc->colidiuJogador(body, 2) == false) {
+                body.move(sf::Vector2f(-velocidade, 0.f));
+            }
             direcao = 0;
             direcaoDisparo = -1;
         }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && posJogador.y > 0) {
             direcao = 3;
-            if (!estah_pulando)
-                body.move(sf::Vector2f(0, vel_pulo));
+            if (!estah_pulando) {
+                if (gc->colidiuJogador(body, 3) == false) {
+                    body.move(sf::Vector2f(0, vel_pulo));
+                }
+            }
         }
         direcao = 4;
         if (gc->colidiuJogador(body, 4) == false) {

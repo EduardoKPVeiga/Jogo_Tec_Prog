@@ -29,12 +29,21 @@ namespace Fases {
     }
 
     void Fase_B::inicializaPlataforma() {
+        /*
+        Plataforma* plataforma = new Plataforma();
+        plataforma->getBody().setSize(sf::Vector2f(window->getSize().x, 25.f));
+        plataforma->setBodyPosition(0.f, window->getSize().y - 25);
+        listaEntidades.push(plataforma);
+        //*/
+
         // Plataforma 1º nivel
+        //*
         for (int i = 0; i < 44; i++)
         {
             Plataforma* plataforma = new Plataforma(25 * i, window->getSize().y - 25, window);
             listaEntidades.push(plataforma);
         }
+        //*/
     }
 
     void Fase_B::inicializaInimigos(Jogador* _jogador1, sf::RenderWindow* _window) {
