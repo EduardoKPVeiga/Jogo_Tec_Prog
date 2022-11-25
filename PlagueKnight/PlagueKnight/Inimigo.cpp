@@ -89,5 +89,6 @@ namespace Inimigos {
 
     void Inimigo::danar() {
         jogador->reduzirVida();
+        jogador->setBodyPosition(50.f, window->getSize().y - 100.f);
     }
 }

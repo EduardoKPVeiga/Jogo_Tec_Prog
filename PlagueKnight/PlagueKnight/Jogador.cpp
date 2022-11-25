@@ -26,7 +26,7 @@ namespace Jogadores {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && posJogador.x < (tamanho.x - tamanhoJogador.x)) {
             colidiu = gc->colidiuJogador(body, 1);
             //if (gc->colidiuJogador(body, 1) == false) {
-            cout << "Jogador colidiu em D: " << colidiu << endl;
+            //cout << "Jogador colidiu em D: " << colidiu << endl;
             if (colidiu == false) {
                 body.move(sf::Vector2f(velocidade, 0.f));
             }
@@ -36,7 +36,7 @@ namespace Jogadores {
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && posJogador.x > 0) {
             colidiu = gc->colidiuJogador(body, 2);
-            cout << "Jogador colidiu em A: " << colidiu << endl;
+            //cout << "Jogador colidiu em A: " << colidiu << endl;
             //if (gc->colidiuJogador(body, 2) == false) {
             if (colidiu == false) {
                 body.move(sf::Vector2f(-velocidade, 0.f));
@@ -49,7 +49,7 @@ namespace Jogadores {
             direcao = 3;
             if (!estah_pulando) {
                 colidiu = gc->colidiuJogador(body, 3);
-                cout << "Jogador colidiu em W: " << colidiu << endl;
+                //cout << "Jogador colidiu em W: " << colidiu << endl;
                 //if (gc->colidiuJogador(body, 3) == false) {
                 if (colidiu == false) {
                     body.move(sf::Vector2f(0, vel_pulo));
@@ -58,7 +58,7 @@ namespace Jogadores {
         }
         direcao = 4;
         colidiu = gc->colidiuJogador(body, 4);
-        cout << "Jogador colidiu em S: " << colidiu << endl;
+        //cout << "Jogador colidiu em S: " << colidiu << endl;
         //if (gc->colidiuJogador(body, 4) == false) {
         if (colidiu == false) {
             receberGravidade(false);

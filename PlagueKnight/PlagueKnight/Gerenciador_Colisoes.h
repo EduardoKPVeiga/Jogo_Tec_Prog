@@ -7,6 +7,7 @@
 #include "Lista.h"
 #include "Elemento.h"
 
+#include <math.h>
 #include <iostream>
 
 using namespace Jogadores;

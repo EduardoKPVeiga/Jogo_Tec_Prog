@@ -22,7 +22,7 @@ void Gerenciador_Colisoes::inicializar(Lista<Entidade>* _listaEntidades) {
 
 bool Gerenciador_Colisoes::colidiuJogador(sf::RectangleShape _body, int direction) {
     sf::RectangleShape body_futuro;
-    body_futuro = body;
+    body_futuro = _body;
 
     if (direction == 4) {
         body_futuro.move(0.f, gravidade);
@@ -45,6 +45,7 @@ bool Gerenciador_Colisoes::colidiuJogador(sf::RectangleShape _body, int directio
 
         for (int i = 0; i < listaEntidades->getLength(); i++) {
 
+            /*
             if (body_futuro.getGlobalBounds().intersects(listaEntidades->getItem(i)->getBodyGlobalBounds())) { // ****
 
                 // Se for danoso
@@ -55,19 +56,21 @@ bool Gerenciador_Colisoes::colidiuJogador(sf::RectangleShape _body, int directio
                 }
                 return true;
             }
+            //*/
 
-            /*
-            // Se colidiu em x pela esquerda e se o modulo da diferenca entre as alturas eh menor que o tamanho do corpo
-            if ( (body_futuro.getPosition().x - listaEntidades->getItem(i)->getPosX() <= body_futuro.getSize().x)
-                && (body_futuro.getPosition().y - listaEntidades->getItem(i)->getPosY() <= body_futuro.getSize().y
-                    || listaEntidades->getItem(i)->getPosY() - body_futuro.getPosition().y <= body_futuro.getSize().y) ) {
+            //*
+            // Se a diferenca entre as distancias em x e em y sao menores que o tamanho do corpo
+            if ( (abs(body_futuro.getPosition().x - listaEntidades->getItem(i)->getPosX()) <= body_futuro.getSize().x)
+                && (abs(body_futuro.getPosition().y - listaEntidades->getItem(i)->getPosY()) <= body_futuro.getSize().y)) {
                 return true;
             }
 
+            /*
             // Se colidiu em x pela direita e se o modulo da diferenca entre as alturas eh menor que o tamanho do corpo
             if ( (listaEntidades->getItem(i)->getPosX() - body_futuro.getPosition().x <= body_futuro.getSize().x)
                 && (body_futuro.getPosition().y - listaEntidades->getItem(i)->getPosY() <= body_futuro.getSize().y
-                    || listaEntidades->getItem(i)->getPosY() - body_futuro.getPosition().y <= body_futuro.getSize().y) ) {
+                    && listaEntidades->getItem(i)->getPosY() - body_futuro.getPosition().y <= body_futuro.getSize().y) ) {
+                cout << "2º if do GC." << endl;
                 return true;
             }
             //*/

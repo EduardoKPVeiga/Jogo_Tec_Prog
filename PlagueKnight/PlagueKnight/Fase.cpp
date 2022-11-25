@@ -21,7 +21,12 @@ namespace Fases {
 		// Display
 		window->clear(sf::Color::Black);
 
-		jogador1->mover();
+		if (jogador1->getVivo())
+			jogador1->mover();
+		else {
+			jogador1->setBodyPosition(50.f, window->getSize().y - 100.f);
+			jogador1->setVivo(true);
+		}
 
 		//listaEntidades->moveEntities(jogador1->getPosX(), jogador1->getPosY(), jogador1->getDirecaoDisparo());
 
@@ -52,15 +57,17 @@ namespace Fases {
 
 		// Desenhando as entidades
 		for (int i = 0; i < listaEntidades.getLength(); i++) {
-			listaEntidades.getItem(i)->draw();
+			if(listaEntidades.getItem(i)->getVivo())
+				listaEntidades.getItem(i)->draw();
 		}
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 			jogador1->atirar();
 
-		bolinha->mover(jogador1->getPosX(), jogador1->getPosY(), jogador1->getDirecaoDisparo());
+		bolinha->mover(jogador1->getPosX() + (jogador1->getBodySize() / 2), jogador1->getPosY() + (jogador1->getBodySize() / 2), jogador1->getDirecaoDisparo());
 
-		jogador1->draw();
+		if(jogador1->getVivo())
+			jogador1->draw();
 		bolinha->draw();
 
 		//listaEntidades->drawEntities(window);
