@@ -1,6 +1,4 @@
-﻿  Fase.cpp
-C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase.cpp(33,46): warning C4244: 'argumento': conversão de 'float' para 'int', possível perda de dados
-  Fase_A.cpp
+﻿  Fase_A.cpp
 C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_A.cpp(46,81): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
           with
           [
@@ -55,72 +53,79 @@ C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_A.cpp(90,77): warn
           [
               T=unsigned int
           ]
-C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_A.cpp(96,77): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_A.cpp(95,76): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
           with
           [
               T=unsigned int
           ]
-C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_A.cpp(102,77): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_A.cpp(102,98): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
           with
           [
               T=unsigned int
           ]
-C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_A.cpp(108,77): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_A.cpp(102,68): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
           with
           [
               T=unsigned int
           ]
-C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_A.cpp(125,77): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_A.cpp(103,58): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
           with
           [
               T=unsigned int
           ]
-C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_A.cpp(131,77): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_A.cpp(109,92): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
           with
           [
               T=unsigned int
           ]
-C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_A.cpp(137,77): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_A.cpp(109,62): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
           with
           [
               T=unsigned int
           ]
-C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_A.cpp(143,77): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_A.cpp(110,55): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
           with
           [
               T=unsigned int
           ]
-  Fase_B.cpp
-C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_B.cpp(44,72): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_A.cpp(127,77): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
           with
           [
               T=unsigned int
           ]
-C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_B.cpp(44,47): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_B.cpp(52,17): warning C4244: 'inicializando': conversão de 'time_t' para 'unsigned int', possível perda de dados
-C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_B.cpp(60,63): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_A.cpp(133,76): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
           with
           [
               T=unsigned int
           ]
-C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_B.cpp(70,64): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_A.cpp(140,98): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
           with
           [
               T=unsigned int
           ]
-C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_B.cpp(124,62): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_A.cpp(140,68): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
           with
           [
               T=unsigned int
           ]
-C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_B.cpp(125,63): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_A.cpp(141,58): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
           with
           [
               T=unsigned int
           ]
-  Jogo.cpp
-C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Jogo.cpp(4,59): warning C4244: 'argumento': conversão de 'float' para 'unsigned int', possível perda de dados
-C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Jogo.cpp(4,31): warning C4244: 'argumento': conversão de 'float' para 'unsigned int', possível perda de dados
-  PlagueKnight.cpp
-  Gerando Código...
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_A.cpp(147,92): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
+          with
+          [
+              T=unsigned int
+          ]
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_A.cpp(147,62): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
+          with
+          [
+              T=unsigned int
+          ]
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Fase_A.cpp(148,55): warning C4244: 'argumento': conversão de 'T' para 'float', possível perda de dados
+          with
+          [
+              T=unsigned int
+          ]
   PlagueKnight.vcxproj -> C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\x64\Debug\PlagueKnight.exe

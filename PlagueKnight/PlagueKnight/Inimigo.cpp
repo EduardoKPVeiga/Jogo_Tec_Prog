@@ -22,6 +22,8 @@ namespace Inimigos {
         this->window = w;
         jogador = _jogador;
         danoso = true;
+        limiteEsqX = 0.f;
+        limiteDirX = 0.f;
     }
 
     void Inimigo::mover(float _posX, float _posY, int _direcao)
@@ -35,13 +37,17 @@ namespace Inimigos {
         }
 
         if (jogador->getPosX() < body.getPosition().x) {
-            body.move(sf::Vector2f(-(velocidade / 4), 0));
+            if (body.getPosition().x - (velocidade / 4) >= limiteEsqX) {
+                body.move(sf::Vector2f(-(velocidade / 4), 0));
+            }
             direcao = 0;
             direcaoDisparo = -1;
         }
 
         else if (jogador->getPosX() > body.getPosition().x) {
-            body.move(sf::Vector2f((velocidade / 4), 0));
+            if (body.getPosition().x + (velocidade / 4) <= limiteDirX) {
+                body.move(sf::Vector2f((velocidade / 4), 0));
+            }
             direcao = 1;
             direcaoDisparo = 1;
         }
@@ -53,4 +59,17 @@ namespace Inimigos {
     }
 
     void Inimigo::atirar() {}
+
+    float Inimigo::getLimiteEsqX() {
+        return limiteEsqX;
+    }
+
+    float Inimigo::getLimiteDirX() {
+        return limiteDirX;
+    }
+
+    void Inimigo::setLimiteX(float _limiteEsqX, float _limiteDirX) {
+        limiteEsqX = _limiteEsqX;
+        limiteDirX = _limiteDirX;
+    }
 }

@@ -58,6 +58,7 @@ namespace Fases {
 			Inimigo_A* inimigoA;
 
 			inimigoA = new Inimigo_A(0.f + 60 * i, window->getSize().y - 50, window, jogador1);
+			inimigoA->setLimiteX(0.f, window->getSize().x);
 			listaEntidades.push(inimigoA);
 			listaInimigos.push(inimigoA);
 
@@ -68,6 +69,7 @@ namespace Fases {
 			Inimigo_C* inimigoC;
 
 			inimigoC = new Inimigo_C(0.f + 100 * i, window->getSize().y - 50, window, jogador1);
+			inimigoC->setLimiteX(0.f, window->getSize().x);
 			listaEntidades.push(inimigoC);
 			listaInimigos.push(inimigoC);
 

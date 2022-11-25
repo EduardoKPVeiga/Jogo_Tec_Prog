@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Personagem.h"
 #include "Jogador.h"
 
@@ -11,6 +12,8 @@ namespace Inimigos {
         bool estah_pulando = false;
         float flyingSpeed = 0;
         Jogador* jogador;
+        float limiteEsqX;
+        float limiteDirX;
 
     public:
         Inimigo();
@@ -21,5 +24,8 @@ namespace Inimigos {
         void mover(float _posX, float _posY, int _direcao);
         void setFlyingSpeed(float s);
         virtual void atirar();
+        float getLimiteEsqX();
+        float getLimiteDirX();
+        void setLimiteX(float _limiteEsqX, float _limiteDirX);
     };
 }
