@@ -123,10 +123,10 @@ namespace Fases {
 	}
 
 	void Fase_B::inicializaArbustos() {
-		Arbusto* arbusto1 = new Arbusto(60.f , window->getSize().y - 50, window);
-		Arbusto* arbusto2 = new Arbusto(350.f , window->getSize().y - 50, window);
+		for (int i = 0; i < (3 + (rand() % 3)); i++) {
+			Arbusto* arbusto = new Arbusto(window->getSize().x - 90 * i, window->getSize().y - 50, window);
 
-		listaEntidades.push(arbusto1);
-		listaEntidades.push(arbusto2);
+			listaEntidades.push(arbusto);
+		}
 	}
 }

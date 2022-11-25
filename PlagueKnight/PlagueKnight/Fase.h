@@ -12,6 +12,7 @@
 #include "Resolucao.h"
 #include "Projetil.h"
 #include "Arbusto.h"
+#include "Arbusto_de_Espinhos.h"
 
 #include <vector>
 #include <SFML/Graphics.hpp>

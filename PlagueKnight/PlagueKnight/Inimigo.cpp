@@ -36,17 +36,31 @@ namespace Inimigos {
             receberGravidade(empuxo);
         }
 
+        // Se o jogador esta a esquerda do inimigo
         if (jogador->getPosX() < body.getPosition().x) {
-            if (body.getPosition().x - (velocidade / 4) >= limiteEsqX) {
-                body.move(sf::Vector2f(-(velocidade / 4), 0));
+
+            // Se o jogador esta proximo do inimigo
+            if ((body.getPosition().x - jogador->getPosX() <= 80.f) && (jogador->getPosY() - body.getPosition().y <= 50.f || body.getPosition().y - jogador->getPosY() <= 50.f)) {
+
+                // Se esta nos limites da plataforma
+                if (body.getPosition().x - (velocidade / 4) >= limiteEsqX) {
+                    body.move(sf::Vector2f(-(velocidade / 4), 0));
+                }
             }
             direcao = 0;
             direcaoDisparo = -1;
         }
 
+        // Se o jogador esta a direita do inimigo
         else if (jogador->getPosX() > body.getPosition().x) {
-            if (body.getPosition().x + (velocidade / 4) <= limiteDirX) {
-                body.move(sf::Vector2f((velocidade / 4), 0));
+
+            // Se o jogador esta proximo do inimigo
+            if ((jogador->getPosX() - body.getPosition().x <= 80.f) && (jogador->getPosY() - body.getPosition().y <= 50.f || body.getPosition().y - jogador->getPosY() <= 50.f)) {
+
+                // Se esta nos limites da plataforma
+                if (body.getPosition().x + (velocidade / 4) <= limiteDirX) {
+                    body.move(sf::Vector2f((velocidade / 4), 0));
+                }
             }
             direcao = 1;
             direcaoDisparo = 1;

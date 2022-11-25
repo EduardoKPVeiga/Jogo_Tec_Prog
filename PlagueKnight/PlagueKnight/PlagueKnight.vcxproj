@@ -134,6 +134,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Arbusto.cpp" />
+    <ClCompile Include="Arbusto_de_Espinhos.cpp" />
     <ClCompile Include="Fase_B.cpp" />
     <ClCompile Include="Inimigo_C.cpp" />
     <ClCompile Include="ListaEntidades.cpp" />
@@ -156,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Arbusto.h" />
+    <ClInclude Include="Arbusto_de_Espinhos.h" />
     <ClInclude Include="Elemento.h" />
     <ClInclude Include="Fase_B.h" />
     <ClInclude Include="Inimigo_C.h" />

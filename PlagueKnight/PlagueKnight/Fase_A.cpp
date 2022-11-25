@@ -21,6 +21,7 @@ namespace Fases {
         inicializaPlataforma();
         inicializaInimigos(_jogador1, _window);
         inicializaProjeteis();
+        inicializaArbustoEspinhos();
 
         /*
         if(listaEntidades.getLength() == 0) {
@@ -203,6 +204,14 @@ namespace Fases {
                 listaInimigos.getItem(i)->setProjetil(listaProjeteis.getItem(j));
                 j++;
             }
+        }
+    }
+
+    void Fase_A::inicializaArbustoEspinhos() {
+        for (int i = 0; i < (3 + (rand() % 3)); i++) {
+            Arbusto_de_Espinhos* arbusto = new Arbusto_de_Espinhos(window->getSize().x - 90 * i, window->getSize().y - 425, window);
+
+            listaEntidades.push(arbusto);
         }
     }
 }
