@@ -11,6 +11,7 @@ namespace Personagens {
         num_vidas = 0;
         alturaMaxPulo = 0;
         direcaoDisparo = 0;
+        vivo = true;
     }
 
     int Personagem::getVidas() {
@@ -30,4 +31,6 @@ namespace Personagens {
             projetil->setProjetilAtivo(true);
 		}
 	}
+
+    void Personagem::danar() {}
 }

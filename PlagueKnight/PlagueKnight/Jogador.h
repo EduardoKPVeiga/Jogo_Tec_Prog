@@ -18,7 +18,8 @@ namespace Jogadores {
         ~Jogador();
         void setGC(Gerenciador_Colisoes* GC) { this->gc = GC; }
         void mover();
-        void pular();
+        void reduzirVida();
+        //void pular();
     };
 }
 

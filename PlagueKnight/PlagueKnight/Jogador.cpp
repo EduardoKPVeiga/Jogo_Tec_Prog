@@ -21,8 +21,13 @@ namespace Jogadores {
         sf::Vector2f posJogador = body.getPosition();
         sf::Vector2f tamanhoJogador = body.getSize();
 
+        bool colidiu;
+
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && posJogador.x < (tamanho.x - tamanhoJogador.x)) {
-            if (gc->colidiuJogador(body, 1) == false) {
+            colidiu = gc->colidiuJogador(body, 1);
+            //if (gc->colidiuJogador(body, 1) == false) {
+            cout << "Jogador colidiu em D: " << colidiu << endl;
+            if (colidiu == false) {
                 body.move(sf::Vector2f(velocidade, 0.f));
             }
              direcao = 1;
@@ -30,7 +35,10 @@ namespace Jogadores {
         }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && posJogador.x > 0) {
-            if (gc->colidiuJogador(body, 2) == false) {
+            colidiu = gc->colidiuJogador(body, 2);
+            cout << "Jogador colidiu em A: " << colidiu << endl;
+            //if (gc->colidiuJogador(body, 2) == false) {
+            if (colidiu == false) {
                 body.move(sf::Vector2f(-velocidade, 0.f));
             }
             direcao = 0;
@@ -40,13 +48,19 @@ namespace Jogadores {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && posJogador.y > 0) {
             direcao = 3;
             if (!estah_pulando) {
-                if (gc->colidiuJogador(body, 3) == false) {
+                colidiu = gc->colidiuJogador(body, 3);
+                cout << "Jogador colidiu em W: " << colidiu << endl;
+                //if (gc->colidiuJogador(body, 3) == false) {
+                if (colidiu == false) {
                     body.move(sf::Vector2f(0, vel_pulo));
                 }
             }
         }
         direcao = 4;
-        if (gc->colidiuJogador(body, 4) == false) {
+        colidiu = gc->colidiuJogador(body, 4);
+        cout << "Jogador colidiu em S: " << colidiu << endl;
+        //if (gc->colidiuJogador(body, 4) == false) {
+        if (colidiu == false) {
             receberGravidade(false);
             direcao = 4;
 
@@ -60,5 +74,13 @@ namespace Jogadores {
             
         }
         
+    }
+
+    void Jogador::reduzirVida() {
+        if (num_vidas >= 1)
+            num_vidas--;
+
+        if(num_vidas == 0)
+            vivo = false;
     }
 }

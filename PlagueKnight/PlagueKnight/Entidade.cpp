@@ -7,6 +7,8 @@ Entidade::Entidade() : body(sf::Vector2f(25.f, 25.f)) {
 	posY = NULL;
 	window = NULL;
 	atirador = false;
+	danoso = false;
+	vivo = true;
 }
 
 Entidade::~Entidade() {}
@@ -38,3 +40,13 @@ void Entidade::setDanoso(bool _danoso) {
 bool Entidade::getDanoso() {
 	return danoso;
 }
+
+void Entidade::setVivo(bool _vivo) {
+	vivo = _vivo;
+}
+
+bool Entidade::getVivo() {
+	return vivo;
+}
+
+void Entidade::danar() {}

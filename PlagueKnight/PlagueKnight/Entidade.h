@@ -17,6 +17,7 @@ protected:
 	sf::RectangleShape body;
 	sf::RenderWindow* window;
 	bool danoso;
+	bool vivo;
 
 public:
 	Entidade();
@@ -36,5 +37,8 @@ public:
 	virtual void atirar() {}
 	void setDanoso(bool _danoso);
 	bool getDanoso();
+	void setVivo(bool _vivo);
+	bool getVivo();
+	virtual void danar();
 };
 

@@ -39,7 +39,7 @@ namespace Fases {
 
 		// Plataforma 1º nivel
 		//*
-		for (int i = 0; i < 44; i++)
+		for (int i = 0; i < 32; i++)
 		{
 			Plataforma* plataforma = new Plataforma(25 * i, window->getSize().y - 25, window);
 			listaEntidades.push(plataforma);
@@ -57,7 +57,7 @@ namespace Fases {
 		for (int i = 0; i < (3 + (rand() % 3)); i++) {
 			Inimigo_A* inimigoA;
 
-			inimigoA = new Inimigo_A(0.f + 60 * i, window->getSize().y - 50, window, jogador1);
+			inimigoA = new Inimigo_A(rand() % window->getSize().x, window->getSize().y - 50, window, jogador1);
 			inimigoA->setLimiteX(0.f, window->getSize().x);
 			listaEntidades.push(inimigoA);
 			listaInimigos.push(inimigoA);
@@ -65,10 +65,11 @@ namespace Fases {
 			qtdInimigos++;
 		}
 
+		srand(time(0));
 		for (int i = 0; i < (3 + (rand() % 3)); i++) {
 			Inimigo_C* inimigoC;
 
-			inimigoC = new Inimigo_C(0.f + 100 * i, window->getSize().y - 50, window, jogador1);
+			inimigoC = new Inimigo_C(rand() % window->getSize().x, window->getSize().y - 50, window, jogador1);
 			inimigoC->setLimiteX(0.f, window->getSize().x);
 			listaEntidades.push(inimigoC);
 			listaInimigos.push(inimigoC);
@@ -123,8 +124,9 @@ namespace Fases {
 	}
 
 	void Fase_B::inicializaArbustos() {
+		srand(time(0));
 		for (int i = 0; i < (3 + (rand() % 3)); i++) {
-			Arbusto* arbusto = new Arbusto(window->getSize().x - 90 * i, window->getSize().y - 50, window);
+			Arbusto* arbusto = new Arbusto(rand() % window->getSize().x, window->getSize().y - 50, window);
 
 			listaEntidades.push(arbusto);
 		}

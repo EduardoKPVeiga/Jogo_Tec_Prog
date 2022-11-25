@@ -41,8 +41,22 @@ bool Gerenciador_Colisoes::colidiuJogador(sf::RectangleShape _body, int directio
     }
 
     if (listaEntidades->getLength() > 0) {
+        //cout << "Tamanho listaEntidades: " << listaEntidades->getLength() << endl;
+
         for (int i = 0; i < listaEntidades->getLength(); i++) {
 
+            if (body_futuro.getGlobalBounds().intersects(listaEntidades->getItem(i)->getBodyGlobalBounds())) { // ****
+
+                // Se for danoso
+                if (listaEntidades->getItem(i)->getDanoso()) {
+
+                    // causar dano
+                    listaEntidades->getItem(i)->danar();
+                }
+                return true;
+            }
+
+            /*
             // Se colidiu em x pela esquerda e se o modulo da diferenca entre as alturas eh menor que o tamanho do corpo
             if ( (body_futuro.getPosition().x - listaEntidades->getItem(i)->getPosX() <= body_futuro.getSize().x)
                 && (body_futuro.getPosition().y - listaEntidades->getItem(i)->getPosY() <= body_futuro.getSize().y
@@ -54,24 +68,6 @@ bool Gerenciador_Colisoes::colidiuJogador(sf::RectangleShape _body, int directio
             if ( (listaEntidades->getItem(i)->getPosX() - body_futuro.getPosition().x <= body_futuro.getSize().x)
                 && (body_futuro.getPosition().y - listaEntidades->getItem(i)->getPosY() <= body_futuro.getSize().y
                     || listaEntidades->getItem(i)->getPosY() - body_futuro.getPosition().y <= body_futuro.getSize().y) ) {
-                return true;
-            }
-
-            /*
-            // Se colidiu em y por cima
-            if (body_futuro.getPosition().y - (listaEntidades->getItem(i)->getPosY() + listaEntidades->getItem(i)->getBodySize())) {
-                return true;
-            }
-
-            // Se colidiu em y por baixo
-            if (listaEntidades->getItem(i)->getPosY() - (body_futuro.getPosition().y + body_futuro.getSize().y)) {
-                return true;
-            }
-            //*/
-
-            /*
-            if (body_futuro.getGlobalBounds().intersects(listaEntidades->getItem(i)->getBodyGlobalBounds())) {
-                cout << "Colidiu" << endl;
                 return true;
             }
             //*/

@@ -86,4 +86,8 @@ namespace Inimigos {
         limiteEsqX = _limiteEsqX;
         limiteDirX = _limiteDirX;
     }
+
+    void Inimigo::danar() {
+        jogador->reduzirVida();
+    }
 }

@@ -28,6 +28,7 @@ namespace Personagens {
         int getDirecaoDisparo() { return direcaoDisparo; }
         virtual void mover(float _posX, float _posY, int _direcao) {}
         void setProjetil(Projetil* _projetil) { projetil = _projetil; }
+        virtual void danar();
     };
 }
 

@@ -28,7 +28,7 @@ namespace Fases {
             cout << "ERRO: listaEntidades vazia na inicializacao." << endl;
         }
         else {
-            cout << "Tamanho de listaEntidades: " << listaEntidades.getLength() << "." << endl;
+            cout << "Tamanho de listaEntidades em Fase_A: " << listaEntidades.getLength() << "." << endl;
         }
         //*/
 
@@ -42,7 +42,7 @@ namespace Fases {
     void Fase_A::inicializaPlataforma()
     {
         // Plataforma 1º nivel
-        for (int i = 0; i < 44; i++)
+        for (int i = 0; i < 32; i++)
         {
             Plataforma* plataforma = new Plataforma(25 * i, window->getSize().y - 25, window);
             listaEntidades.push(plataforma);
@@ -88,27 +88,27 @@ namespace Fases {
 
             int nivelPlataforma = 1 + (rand() % 3);
             if(nivelPlataforma == 1) {
-                inimigoA = new Inimigo_A(0.f + 100 * i, window->getSize().y - 50, window, jogador1);                listaEntidades.push(inimigoA);
+                inimigoA = new Inimigo_A(rand() % window->getSize().x, window->getSize().y - 50, window, jogador1);                listaEntidades.push(inimigoA);
                 listaInimigos.push(inimigoA);
             }
 
             else if (nivelPlataforma == 2) {
-                inimigoA = new Inimigo_A(0.f + 80 * i, window->getSize().y - 175, window, jogador1);
+                inimigoA = new Inimigo_A(rand() % 470, window->getSize().y - 175, window, jogador1);
                 inimigoA->setLimiteX(0.f, 475.f);
                 listaEntidades.push(inimigoA);
                 listaInimigos.push(inimigoA);
             }
 
             else if (nivelPlataforma == 3) {
-                inimigoA = new Inimigo_A((window->getSize().x / 5) + 40 * i, window->getSize().y - 300, window, jogador1);
+                inimigoA = new Inimigo_A((window->getSize().x / 5) + (rand() % 470), window->getSize().y - 300, window, jogador1);
                 inimigoA->setLimiteX(window->getSize().x / 5, (window->getSize().x / 5) + 475.f);
                 listaEntidades.push(inimigoA);
                 listaInimigos.push(inimigoA);
             }
 
             else if (nivelPlataforma == 4) {
-                inimigoA = new Inimigo_A(window->getSize().x + 60 * i, window->getSize().y - 400, window, jogador1);
-                inimigoA->setLimiteX(window->getSize().x, window->getSize().x - 475.f);
+                inimigoA = new Inimigo_A(window->getSize().x - 60 * i, window->getSize().y - 425, window, jogador1);
+                inimigoA->setLimiteX(window->getSize().x - 475.f, window->getSize().x);
                 listaEntidades.push(inimigoA);
                 listaInimigos.push(inimigoA);
             }
@@ -120,12 +120,14 @@ namespace Fases {
             qtdInimigos++;
         }
 
+        srand(time(0));
+
         for (int i = 0; i < (3 + (rand() % 3)); i++) {
             Inimigo_B* inimigoB;
 
             int nivelPlataforma = 1 + (rand() % 3);
             if (nivelPlataforma == 1) {
-                inimigoB = new Inimigo_B(0.f + 100 * i, window->getSize().y - 50, window, jogador1);
+                inimigoB = new Inimigo_B(rand() % window->getSize().x, window->getSize().y - 50, window, jogador1);
                 listaEntidades.push(inimigoB);
                 listaInimigos.push(inimigoB);
             }
@@ -145,8 +147,8 @@ namespace Fases {
             }
 
             else if (nivelPlataforma == 4) {
-                inimigoB = new Inimigo_B(window->getSize().x + 60 * i, window->getSize().y - 400, window, jogador1);
-                inimigoB->setLimiteX(window->getSize().x, window->getSize().x - 475.f);
+                inimigoB = new Inimigo_B(window->getSize().x - 60 * i, window->getSize().y - 400, window, jogador1);
+                inimigoB->setLimiteX(window->getSize().x - 475.f, window->getSize().x);
                 listaEntidades.push(inimigoB);
                 listaInimigos.push(inimigoB);
             }
@@ -158,30 +160,6 @@ namespace Fases {
             qtdInimigos++;
             qtdInimigosAtiradores++;
         }
-
-        /*
-        Inimigo_B* inimigo1 = new Inimigo_B(0.f, window->getSize().y - 50, window, jogador1);
-        Inimigo_B* inimigo2 = new Inimigo_B((650.f / RESOLUTION_X), window->getSize().y - 50, window, jogador1);
-        Inimigo_B* inimigo3 = new Inimigo_B((400.f / RESOLUTION_X), window->getSize().y - 50, window, jogador1);
-        Inimigo_A* inimigo4 = new Inimigo_A((10.f / RESOLUTION_X), window->getSize().y - 50, window, jogador1);
-
-        inimigo1->setAtirador(true);
-        inimigo2->setAtirador(true);
-        inimigo3->setAtirador(true);
-        inimigo4->setAtirador(false);
-
-        listaEntidades.push(inimigo1);
-        listaEntidades.push(inimigo2);
-        listaEntidades.push(inimigo3);
-        listaEntidades.push(inimigo4);
-
-        listaInimigos.push(inimigo1);
-        listaInimigos.push(inimigo2);
-        listaInimigos.push(inimigo3);
-        listaInimigos.push(inimigo4);
-
-        qtdInimigos = 4;
-        //*/
     }
 
     void Fase_A::inicializaProjeteis() {
@@ -208,8 +186,9 @@ namespace Fases {
     }
 
     void Fase_A::inicializaArbustoEspinhos() {
+        srand(time(0));
         for (int i = 0; i < (3 + (rand() % 3)); i++) {
-            Arbusto_de_Espinhos* arbusto = new Arbusto_de_Espinhos(window->getSize().x - 90 * i, window->getSize().y - 425, window);
+            Arbusto_de_Espinhos* arbusto = new Arbusto_de_Espinhos(window->getSize().x - 475.f + (rand() % 400), window->getSize().y - 425, window);
 
             listaEntidades.push(arbusto);
         }
