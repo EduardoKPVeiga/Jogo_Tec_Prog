@@ -28,6 +28,7 @@ namespace Fases {
 		Gerenciador_Colisoes* gc;
 		Lista<Projetil> listaProjeteis;
 		Lista<Inimigo> listaInimigos;
+		Lista<Inimigo_B> listaAtiradores;
 		//ListaEntidades* listaEntidades;
 		//Lista<Inimigo> ListEnemies;
 		//Lista<Obstaculo> LO;

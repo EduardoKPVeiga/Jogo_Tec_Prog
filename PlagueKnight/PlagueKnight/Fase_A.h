@@ -8,6 +8,7 @@
 
 namespace Fases {
 	class Fase_A :public Fase {
+
 	public:
 		Fase_A();
 		Fase_A(Jogador* jogador1, sf::RenderWindow* window);

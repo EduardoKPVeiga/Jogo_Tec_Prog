@@ -35,8 +35,6 @@ namespace Fases {
 
         gc->setListaEntidades(&listaEntidades);
 
-        jogador1->setProjetil(bolinha);
-
         jogador1->setGC(gc);
     }
 
@@ -90,7 +88,9 @@ namespace Fases {
 
             int nivelPlataforma = 1 + (rand() % 3);
             if(nivelPlataforma == 1) {
-                inimigoA = new Inimigo_A(150.f + rand() % (window->getSize().x - 150), window->getSize().y - 50, window, jogador1);                listaEntidades.push(inimigoA);
+                inimigoA = new Inimigo_A(150.f + rand() % (window->getSize().x - 175), window->getSize().y - 50, window, jogador1);
+                inimigoA->setLimiteX(150.f, window->getSize().x);
+                listaEntidades.push(inimigoA);
                 listaInimigos.push(inimigoA);
             }
 
@@ -111,7 +111,7 @@ namespace Fases {
             //*/
 
             else if (nivelPlataforma == 4) {
-                inimigoA = new Inimigo_A(window->getSize().x - 60 * i, window->getSize().y - 425, window, jogador1);
+                inimigoA = new Inimigo_A(window->getSize().x - ((rand() % 470) + 25), window->getSize().y - 425, window, jogador1);
                 inimigoA->setLimiteX(window->getSize().x - 475.f, window->getSize().x);
                 listaEntidades.push(inimigoA);
                 listaInimigos.push(inimigoA);
@@ -128,19 +128,25 @@ namespace Fases {
 
         for (int i = 0; i < (3 + (rand() % 3)); i++) {
             Inimigo_B* inimigoB;
+            Projetil* projetil;
 
             int nivelPlataforma = 1 + (rand() % 3);
             if (nivelPlataforma == 1) {
-                inimigoB = new Inimigo_B(150.f + rand() % (window->getSize().x - 150), window->getSize().y - 50, window, jogador1);
+                inimigoB = new Inimigo_B(150.f + rand() % (window->getSize().x - 175), window->getSize().y - 50, window, jogador1);
+                inimigoB->setAtirador(true);
+                inimigoB->setLimiteX(150.f, window->getSize().x);
                 listaEntidades.push(inimigoB);
                 listaInimigos.push(inimigoB);
+                listaAtiradores.push(inimigoB);
             }
 
             else if (nivelPlataforma == 2 || nivelPlataforma == 3) {
                 inimigoB = new Inimigo_B(rand() % 470, window->getSize().y - 175, window, jogador1);
+                inimigoB->setAtirador(true);
                 inimigoB->setLimiteX(0.f, 475.f);
                 listaEntidades.push(inimigoB);
                 listaInimigos.push(inimigoB);
+                listaAtiradores.push(inimigoB);
             }
 
             /*
@@ -153,10 +159,12 @@ namespace Fases {
             //*/
 
             else if (nivelPlataforma == 4) {
-                inimigoB = new Inimigo_B(window->getSize().x - 60 * i, window->getSize().y - 425, window, jogador1);
+                inimigoB = new Inimigo_B(window->getSize().x - ((rand() % 470) + 25), window->getSize().y - 425, window, jogador1);
+                inimigoB->setAtirador(true);
                 inimigoB->setLimiteX(window->getSize().x - 475.f, window->getSize().x);
                 listaEntidades.push(inimigoB);
                 listaInimigos.push(inimigoB);
+                listaAtiradores.push(inimigoB);
             }
 
             else {
@@ -170,6 +178,7 @@ namespace Fases {
 
     void Fase_A::inicializaProjeteis() {
         bolinha = new Projetil(window);
+        jogador1->setProjetil(bolinha);
         /*
         listaEntidades.push(bolinha);
         listaProjeteis.push(bolinha);
@@ -178,21 +187,16 @@ namespace Fases {
         // Projeteis de inimigos B
         for (int i = 0; i < qtdInimigosAtiradores; i++) {
             Projetil* projetil = new Projetil(window);
+            if (listaAtiradores.getItem(i)->getAtirador()) {
+                listaAtiradores.getItem(i)->setProjetil(projetil);
+            }
             listaEntidades.push(projetil);
             listaProjeteis.push(projetil);
-        }
-
-        int j = 0;
-        for (int i = 0; i < listaInimigos.getLength(); i++) {
-            if (listaInimigos.getItem(i)->getAtirador()) {
-                listaInimigos.getItem(i)->setProjetil(listaProjeteis.getItem(j));
-                j++;
-            }
         }
     }
 
     void Fase_A::inicializaArbustoEspinhos() {
-        srand(time(0));
+        srand(time(0) + 50);
         for (int i = 0; i < (3 + (rand() % 3)); i++) {
             Arbusto_de_Espinhos* arbusto = new Arbusto_de_Espinhos(window->getSize().x - 475.f + (rand() % 400), window->getSize().y - 425, window);
 

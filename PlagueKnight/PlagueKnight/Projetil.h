@@ -31,5 +31,7 @@ public:
 
 	void mover(float _posX, float _posY, int _direcao);
 	void draw();
+
+	int getDirecaoDisparo() { return direcaoDisparoProjetil; }
 };
 

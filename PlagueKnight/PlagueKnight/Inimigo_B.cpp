@@ -24,4 +24,10 @@ namespace Inimigos {
 		empuxo = true;
 		num_vidas = 1;
 	}
+
+	void Inimigo_B::atirar() {
+		if (!projetil->getProjetilAtivo()) {
+			projetil->setProjetilAtivo(true);
+		}
+	}
 }

@@ -30,53 +30,58 @@ namespace Fases {
 
 		//listaEntidades->moveEntities(jogador1->getPosX(), jogador1->getPosY(), jogador1->getDirecaoDisparo());
 
-		// Inimigos atirando
-		int j = 0;
+		cout << "Qtd de projeteis: " << listaProjeteis.getLength() << endl;
+
+		// Movendo inimigos
 		for (int i = 0; i < listaInimigos.getLength(); i++) {
-
-			// Movendo inimigos
 			listaInimigos.getItem(i)->mover(0.f, 0.f, 0.f);
-
-			// Inimigos atirando
-			if (listaProjeteis.getLength() != 0) {
-				if (listaInimigos.getItem(i)->getAtirador()) {
-					if (listaProjeteis.getLength() <= qtdInimigos) {
-						listaInimigos.getItem(i)->atirar();
-					}
-
-					else {
-						cout << "ERRO: quantidade de projeteis insuficiente!" << endl;
-					}
-
-					// Movendo projeteis
-					listaProjeteis.getItem(j)->mover(listaInimigos.getItem(i)->getPosX(), listaInimigos.getItem(i)->getPosY(), listaInimigos.getItem(i)->getDirecaoDisparo());
-					j++;
-				}
-			}
 		}
 
-		// Desenhando as entidades
-		for (int i = 0; i < listaEntidades.getLength(); i++) {
-			if(listaEntidades.getItem(i)->getVivo())
-				listaEntidades.getItem(i)->draw();
+		// Inimigos atirando
+		if (listaProjeteis.getLength() == listaAtiradores.getLength() && listaProjeteis.getLength() <= qtdInimigos) {
+			for (int j = 0; j < listaAtiradores.getLength(); j++) {
+
+				// Se esta perto do jogador atira
+				if (abs(listaAtiradores.getItem(j)->getPosX() - jogador1->getPosX()) <= 160.f && abs(jogador1->getPosY() - listaAtiradores.getItem(j)->getPosY()) <= 50.f) {
+					listaAtiradores.getItem(j)->atirar();
+				}
+
+				else {
+					listaProjeteis.getItem(j)->setProjetilAtivo(false);
+				}
+
+				// Movendo projeteis
+				listaProjeteis.getItem(j)->mover(listaAtiradores.getItem(j)->getPosX(), listaAtiradores.getItem(j)->getPosY(), listaAtiradores.getItem(j)->getDirecaoDisparo());
+			}
 		}
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 			jogador1->atirar();
 
+
 		bolinha->mover(jogador1->getPosX() + (jogador1->getBodySize() / 2), jogador1->getPosY() + (jogador1->getBodySize() / 2), jogador1->getDirecaoDisparo());
 
-		if(jogador1->getVivo())
+		// Desenhando as entidades
+		for (int i = 0; i < listaEntidades.getLength(); i++) {
+			if (listaEntidades.getItem(i)->getVivo())
+				listaEntidades.getItem(i)->draw();
+		}
+
+		// desenhando jogador
+		if (jogador1->getVivo())
 			jogador1->draw();
+
+		// Desenhando projeteis
+		for (int i = 0; i < listaProjeteis.getLength(); i++) {
+			listaProjeteis.getItem(i)->draw();
+		}
+
 		bolinha->draw();
 
+		// Desativa a fase se a vida do jogador chegar a 0
 		if (!jogador1->getVidas()) {
 			faseAtiva = false;
 		}
-
-		//listaEntidades->drawEntities(window);
-
-		//this->desenhaPlataforma();
 
 		// Show player's life
 		text.setFont(font);
