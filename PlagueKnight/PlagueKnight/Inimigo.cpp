@@ -32,19 +32,17 @@ namespace Inimigos {
         sf::Vector2f enemyPosition = body.getPosition();
         sf::Vector2f enemySize = body.getSize();
 
-        if (!empuxo) {
-            receberGravidade(empuxo);
-        }
+        receberGravidade(empuxo);
 
         // Se o jogador esta a esquerda do inimigo
         if (jogador->getPosX() < body.getPosition().x) {
 
             // Se o jogador esta proximo do inimigo
-            if ((body.getPosition().x - jogador->getPosX() <= 80.f) && (jogador->getPosY() - body.getPosition().y <= 50.f || body.getPosition().y - jogador->getPosY() <= 50.f)) {
+            if ((body.getPosition().x - jogador->getPosX() <= 200.f) && (jogador->getPosY() - body.getPosition().y <= 50.f || body.getPosition().y - jogador->getPosY() <= 50.f)) {
 
                 // Se esta nos limites da plataforma
-                if (body.getPosition().x - (velocidade / 4) >= limiteEsqX) {
-                    body.move(sf::Vector2f(-(velocidade / 4), 0));
+                if (body.getPosition().x - (velocidade / 8) >= limiteEsqX) {
+                    body.move(sf::Vector2f(-(velocidade / 8), 0));
                 }
             }
             direcao = 0;
@@ -55,7 +53,7 @@ namespace Inimigos {
         else if (jogador->getPosX() > body.getPosition().x) {
 
             // Se o jogador esta proximo do inimigo
-            if ((jogador->getPosX() - body.getPosition().x <= 80.f) && (jogador->getPosY() - body.getPosition().y <= 50.f || body.getPosition().y - jogador->getPosY() <= 50.f)) {
+            if ((jogador->getPosX() - body.getPosition().x <= 300.f) && (jogador->getPosY() - body.getPosition().y <= 50.f || body.getPosition().y - jogador->getPosY() <= 50.f)) {
 
                 // Se esta nos limites da plataforma
                 if (body.getPosition().x + (velocidade / 4) <= limiteDirX) {
@@ -90,5 +88,14 @@ namespace Inimigos {
     void Inimigo::danar() {
         jogador->reduzirVida();
         jogador->setBodyPosition(50.f, window->getSize().y - 100.f);
+    }
+
+    void Inimigo::reduzirVida() {
+        if (num_vidas >= 1) {
+            num_vidas--;
+        }
+        else if (num_vidas == 0) {
+            vivo = false;
+        }
     }
 }

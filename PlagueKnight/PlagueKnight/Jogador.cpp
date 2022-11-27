@@ -83,6 +83,7 @@ namespace Jogadores {
     }
 
     void Jogador::reduzirVida() {
+        this->setBodyPosition(50.f, window->getSize().y - 100.f);
         if (num_vidas >= 1)
             num_vidas--;
 

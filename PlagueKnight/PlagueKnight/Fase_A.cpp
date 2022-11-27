@@ -34,6 +34,8 @@ namespace Fases {
         //*/
 
         gc->setListaEntidades(&listaEntidades);
+        gc->setListaInimigos(&listaInimigos);
+        gc->setListaProjeteis(&listaProjeteis);
 
         jogador1->setGC(gc);
     }
@@ -190,7 +192,7 @@ namespace Fases {
             if (listaAtiradores.getItem(i)->getAtirador()) {
                 listaAtiradores.getItem(i)->setProjetil(projetil);
             }
-            listaEntidades.push(projetil);
+            //listaEntidades.push(projetil);
             listaProjeteis.push(projetil);
         }
     }

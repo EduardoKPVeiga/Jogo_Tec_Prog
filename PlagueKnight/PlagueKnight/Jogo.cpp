@@ -41,6 +41,13 @@ void Jogo::executar() {
                 delete fase1;
                 fase1 = NULL;
             }
+
+            else if (!fase1->getFaseAtiva() && jogador.getVidas() != 0) {
+                option = Options::LEVEL_B;
+                jogador.setBodyPosition(50.f, window.getSize().y - 100.f);
+                delete fase1;
+                fase1 = NULL;
+            }
         }
 
         else if(option == Options::LEVEL_B) {
@@ -55,6 +62,13 @@ void Jogo::executar() {
             else if (!fase2->getFaseAtiva() && jogador.getVidas() == 0) {
                 option = Options::MENU;
                 jogador.reviver();
+                delete fase2;
+                fase2 = NULL;
+            }
+
+            else if (!fase2->getFaseAtiva() && jogador.getVidas() != 0) {
+                option = Options::MENU;
+                jogador.setBodyPosition(50.f, window.getSize().y - 100.f);
                 delete fase2;
                 fase2 = NULL;
             }

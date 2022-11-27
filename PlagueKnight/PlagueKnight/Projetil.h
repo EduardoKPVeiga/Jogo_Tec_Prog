@@ -29,7 +29,7 @@ public:
 	void setProjetilAtivo(bool _projetilAtivo);
 	bool getProjetilAtivo();
 
-	void mover(float _posX, float _posY, int _direcao);
+	void mover(float _posX, float _posY, int _direcao, float _velocidade);
 	void draw();
 
 	int getDirecaoDisparo() { return direcaoDisparoProjetil; }

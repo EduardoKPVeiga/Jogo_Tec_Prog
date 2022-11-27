@@ -28,5 +28,6 @@ namespace Inimigos {
         float getLimiteDirX();
         void setLimiteX(float _limiteEsqX, float _limiteDirX);
         void danar();
+        void reduzirVida();
     };
 }

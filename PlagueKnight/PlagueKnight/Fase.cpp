@@ -28,10 +28,6 @@ namespace Fases {
 			jogador1->setVivo(true);
 		}
 
-		//listaEntidades->moveEntities(jogador1->getPosX(), jogador1->getPosY(), jogador1->getDirecaoDisparo());
-
-		cout << "Qtd de projeteis: " << listaProjeteis.getLength() << endl;
-
 		// Movendo inimigos
 		for (int i = 0; i < listaInimigos.getLength(); i++) {
 			listaInimigos.getItem(i)->mover(0.f, 0.f, 0.f);
@@ -41,25 +37,39 @@ namespace Fases {
 		if (listaProjeteis.getLength() == listaAtiradores.getLength() && listaProjeteis.getLength() <= qtdInimigos) {
 			for (int j = 0; j < listaAtiradores.getLength(); j++) {
 
+				// Movendo projeteis
+				listaProjeteis.getItem(j)->mover(listaAtiradores.getItem(j)->getPosX(), listaAtiradores.getItem(j)->getPosY(), listaAtiradores.getItem(j)->getDirecaoDisparo(), 2.5f);
+
 				// Se esta perto do jogador atira
-				if (abs(listaAtiradores.getItem(j)->getPosX() - jogador1->getPosX()) <= 160.f && abs(jogador1->getPosY() - listaAtiradores.getItem(j)->getPosY()) <= 50.f) {
+				if (listaAtiradores.getItem(j)->getVivo() && abs(listaAtiradores.getItem(j)->getPosX() - jogador1->getPosX()) <= 160.f && abs(jogador1->getPosY() - listaAtiradores.getItem(j)->getPosY()) <= 50.f) {
 					listaAtiradores.getItem(j)->atirar();
 				}
 
 				else {
 					listaProjeteis.getItem(j)->setProjetilAtivo(false);
 				}
+				
+				//*
+				// Se o projetil esta ativo e se colidiu
+				if (listaProjeteis.getItem(j)->getProjetilAtivo() && gc->colidiuProjetilInimigo(listaProjeteis.getItem(j)->getBody(), jogador1->getBody(), listaProjeteis.getItem(j)->getDirecaoDisparo(), 5.f)) {
+					jogador1->reduzirVida();
+					listaProjeteis.getItem(j)->setBodyPosition(listaAtiradores.getItem(j)->getPosX(), listaAtiradores.getItem(j)->getPosY());
+					listaProjeteis.getItem(j)->setProjetilAtivo(false);
+				}
+				//*/
 
 				// Movendo projeteis
-				listaProjeteis.getItem(j)->mover(listaAtiradores.getItem(j)->getPosX(), listaAtiradores.getItem(j)->getPosY(), listaAtiradores.getItem(j)->getDirecaoDisparo());
+				listaProjeteis.getItem(j)->mover(listaAtiradores.getItem(j)->getPosX(), listaAtiradores.getItem(j)->getPosY(), listaAtiradores.getItem(j)->getDirecaoDisparo(), 2.5f);		
 			}
 		}
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 			jogador1->atirar();
 
-
-		bolinha->mover(jogador1->getPosX() + (jogador1->getBodySize() / 2), jogador1->getPosY() + (jogador1->getBodySize() / 2), jogador1->getDirecaoDisparo());
+		bolinha->mover(jogador1->getPosX() + (jogador1->getBodySize() / 2), jogador1->getPosY() + (jogador1->getBodySize() / 2), jogador1->getDirecaoDisparo(), 5.f);
+		if (bolinha->getProjetilAtivo() && gc->colidiuProjetilJogador(bolinha->getBody(), bolinha->getDirecaoDisparo(), 5.f)) {
+			bolinha->setProjetilAtivo(false);
+		}
 
 		// Desenhando as entidades
 		for (int i = 0; i < listaEntidades.getLength(); i++) {
@@ -82,6 +92,15 @@ namespace Fases {
 		if (!jogador1->getVidas()) {
 			faseAtiva = false;
 		}
+
+		qtdInimigos = 0;
+		for (int i = 0; i < listaInimigos.getLength(); i++) {
+			if (listaInimigos.getItem(i)->getVivo())
+				qtdInimigos++;
+		}
+
+		if (qtdInimigos == 0)
+			faseAtiva = false;
 
 		// Show player's life
 		text.setFont(font);

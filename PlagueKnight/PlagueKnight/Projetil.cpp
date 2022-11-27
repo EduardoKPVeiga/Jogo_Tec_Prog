@@ -39,7 +39,7 @@ bool Projetil::getProjetilAtivo() {
 	return projetilAtivo;
 }
 
-void Projetil::mover(float _posX, float _posY, int _direcao) {
+void Projetil::mover(float _posX, float _posY, int _direcao, float _velocidade) {
 	if (_posX <= window->getSize().x && _posX >= 0.f) {
 		if (_posY <= window->getSize().y && _posY >= 0.f) {
 			//time(&tempoAtual);
@@ -58,9 +58,9 @@ void Projetil::mover(float _posX, float _posY, int _direcao) {
 				if ((_direcao == 1 && posX <= (window->getSize().x + 10.f)) || (_direcao == -1 && posX >= 10.f)) {
 					//tempoAnte = tempoAtual;
 
-					posX += (5.f * direcaoDisparoProjetil);
+					posX += (_velocidade * direcaoDisparoProjetil);
 					//posY += float((gravidade * powf(float(tempoAtual - tempoAnte), 2)) / 2.f);
-					posY += 0.1f;
+					posY += gravidade / 100;
 					body.setPosition(posX, posY);
 					//body.move(VEL_PROJETIL * direcaoDisparoProjetil, gravidade / 2);
 					//cout << "Y: " << body.getPosition().y << endl;

@@ -16,15 +16,15 @@ namespace Fases {
 		this->jogador1 = _jogador1;
 		faseAtiva = true;
 
-		//gc = new Gerenciador_Colisoes(&(listaEntidades->LOs), &(listaEntidades->LIs), &(listaEntidades->LPs));
-		gc->setListaEntidades(&listaEntidades);
-
-		//listaEntidades->LJs.push(jogador1);
 		inicializaPlataforma();
 		inicializaInimigos(_jogador1, _window);
 		inicializaProjeteis();
 		inicializaArbustos();
 
+		gc->setListaEntidades(&listaEntidades);
+		gc->setListaInimigos(&listaInimigos);
+		gc->setListaProjeteis(&listaProjeteis);
+		
 		jogador1->setProjetil(bolinha);
 
 		jogador1->setGC(gc);
@@ -111,6 +111,7 @@ namespace Fases {
 
 	void Fase_B::inicializaProjeteis() {
 		bolinha = new Projetil(window);
+		jogador1->setProjetil(bolinha);
 
 		/*
 		// Projeteis de inimigos B
