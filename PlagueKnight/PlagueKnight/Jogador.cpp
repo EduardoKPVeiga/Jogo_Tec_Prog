@@ -24,22 +24,28 @@ namespace Jogadores {
         bool colidiu;
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) && posJogador.x < (tamanho.x - tamanhoJogador.x)) {
-            colidiu = gc->colidiuJogador(body, 1);
+            colidiu = gc->colidiuJogador(body, 1, velocidade);
             //if (gc->colidiuJogador(body, 1) == false) {
             //cout << "Jogador colidiu em D: " << colidiu << endl;
             if (colidiu == false) {
                 body.move(sf::Vector2f(velocidade, 0.f));
+            }
+            else {
+                body.move(sf::Vector2f(-velocidade, 0.f));
             }
              direcao = 1;
              direcaoDisparo = 1;
         }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && posJogador.x > 0) {
-            colidiu = gc->colidiuJogador(body, 2);
+            colidiu = gc->colidiuJogador(body, 2, velocidade);
             //cout << "Jogador colidiu em A: " << colidiu << endl;
             //if (gc->colidiuJogador(body, 2) == false) {
             if (colidiu == false) {
                 body.move(sf::Vector2f(-velocidade, 0.f));
+            }
+            else {
+                body.move(sf::Vector2f(velocidade, 0.f));
             }
             direcao = 0;
             direcaoDisparo = -1;
@@ -48,7 +54,7 @@ namespace Jogadores {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && posJogador.y > 0) {
             direcao = 3;
             if (!estah_pulando) {
-                colidiu = gc->colidiuJogador(body, 3);
+                colidiu = gc->colidiuJogador(body, 3, velocidade);
                 //cout << "Jogador colidiu em W: " << colidiu << endl;
                 //if (gc->colidiuJogador(body, 3) == false) {
                 if (colidiu == false) {
@@ -57,7 +63,7 @@ namespace Jogadores {
             }
         }
         direcao = 4;
-        colidiu = gc->colidiuJogador(body, 4);
+        colidiu = gc->colidiuJogador(body, 4, velocidade);
         //cout << "Jogador colidiu em S: " << colidiu << endl;
         //if (gc->colidiuJogador(body, 4) == false) {
         if (colidiu == false) {
@@ -82,5 +88,10 @@ namespace Jogadores {
 
         if(num_vidas == 0)
             vivo = false;
+    }
+
+    void Jogador::reviver() {
+        num_vidas = 3;
+        vivo = true;
     }
 }

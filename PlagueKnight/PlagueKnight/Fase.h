@@ -38,6 +38,7 @@ namespace Fases {
 		sf::RenderWindow* window;
 		int qtdInimigos;
 		int qtdInimigosAtiradores;
+		bool faseAtiva;
 
 	public:
 		Fase();
@@ -48,5 +49,6 @@ namespace Fases {
 		int getQtdInimigos() { return qtdInimigos; }
 		void setQtdInimigos(int _qtdInimigos) { qtdInimigos = _qtdInimigos; }
 		void displayFase();
+		bool getFaseAtiva();
 	};
 }

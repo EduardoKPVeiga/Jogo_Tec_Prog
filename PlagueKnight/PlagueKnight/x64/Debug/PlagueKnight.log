@@ -1,2 +1,4 @@
-﻿  Inimigo.cpp
+﻿  Jogo.cpp
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Jogo.cpp(4,59): warning C4244: 'argumento': conversão de 'float' para 'unsigned int', possível perda de dados
+C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\PlagueKnight\Jogo.cpp(4,31): warning C4244: 'argumento': conversão de 'float' para 'unsigned int', possível perda de dados
   PlagueKnight.vcxproj -> C:\Projects\2022\Jogo_Tec_Prog\PlagueKnight\x64\Debug\PlagueKnight.exe

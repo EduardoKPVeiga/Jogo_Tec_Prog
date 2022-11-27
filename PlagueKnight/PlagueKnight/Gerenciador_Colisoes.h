@@ -30,7 +30,7 @@ public:
     void inicializar(Lista<Entidade>* _listaEntidades);
     //void setLO(Plataforma* obstacle);
     //Obstaculo getObstacle(int position) { return *LOs->getItem(position); }
-    bool colidiuJogador(sf::RectangleShape body, int direction);
+    bool colidiuJogador(sf::RectangleShape body, int direction, float _velX);
     void setListaEntidades(Lista<Entidade>* _listaEntidades);
     Lista<Entidade>* getListaEntidades();
 };

@@ -14,6 +14,7 @@ namespace Fases {
     void Fase_A::inicializeElementos(Jogador* _jogador1, sf::RenderWindow* _window) {
         this->window = _window;
         this->jogador1 = _jogador1;
+        faseAtiva = true;
 
         //gc = new Gerenciador_Colisoes(&(listaEntidades->LOs), &(listaEntidades->LIs), &(listaEntidades->LPs));
 
@@ -60,8 +61,9 @@ namespace Fases {
         }
 
         // Plataforma 3º nivel
+        srand(time(0));
         for (int i = 0; i < 20; i++) {
-            Plataforma* plataforma = new Plataforma(((window->getSize().x / 5) + (25 * i)), window->getSize().y - 275, window);
+            Plataforma* plataforma = new Plataforma(((window->getSize().x / 5) + (rand() % 475)), window->getSize().y - 275, window);
             listaEntidades.push(plataforma);
         }
 
@@ -88,23 +90,25 @@ namespace Fases {
 
             int nivelPlataforma = 1 + (rand() % 3);
             if(nivelPlataforma == 1) {
-                inimigoA = new Inimigo_A(rand() % window->getSize().x, window->getSize().y - 50, window, jogador1);                listaEntidades.push(inimigoA);
+                inimigoA = new Inimigo_A(150.f + rand() % (window->getSize().x - 150), window->getSize().y - 50, window, jogador1);                listaEntidades.push(inimigoA);
                 listaInimigos.push(inimigoA);
             }
 
-            else if (nivelPlataforma == 2) {
+            else if (nivelPlataforma == 2 || nivelPlataforma == 3) {
                 inimigoA = new Inimigo_A(rand() % 470, window->getSize().y - 175, window, jogador1);
                 inimigoA->setLimiteX(0.f, 475.f);
                 listaEntidades.push(inimigoA);
                 listaInimigos.push(inimigoA);
             }
 
+            /*
             else if (nivelPlataforma == 3) {
                 inimigoA = new Inimigo_A((window->getSize().x / 5) + (rand() % 470), window->getSize().y - 300, window, jogador1);
                 inimigoA->setLimiteX(window->getSize().x / 5, (window->getSize().x / 5) + 475.f);
                 listaEntidades.push(inimigoA);
                 listaInimigos.push(inimigoA);
             }
+            //*/
 
             else if (nivelPlataforma == 4) {
                 inimigoA = new Inimigo_A(window->getSize().x - 60 * i, window->getSize().y - 425, window, jogador1);
@@ -120,34 +124,36 @@ namespace Fases {
             qtdInimigos++;
         }
 
-        srand(time(0));
+        srand(time(0) + 100);
 
         for (int i = 0; i < (3 + (rand() % 3)); i++) {
             Inimigo_B* inimigoB;
 
             int nivelPlataforma = 1 + (rand() % 3);
             if (nivelPlataforma == 1) {
-                inimigoB = new Inimigo_B(rand() % window->getSize().x, window->getSize().y - 50, window, jogador1);
+                inimigoB = new Inimigo_B(150.f + rand() % (window->getSize().x - 150), window->getSize().y - 50, window, jogador1);
                 listaEntidades.push(inimigoB);
                 listaInimigos.push(inimigoB);
             }
 
-            else if (nivelPlataforma == 2) {
-                inimigoB = new Inimigo_B(0.f + 80 * i, window->getSize().y - 175, window, jogador1);
+            else if (nivelPlataforma == 2 || nivelPlataforma == 3) {
+                inimigoB = new Inimigo_B(rand() % 470, window->getSize().y - 175, window, jogador1);
                 inimigoB->setLimiteX(0.f, 475.f);
                 listaEntidades.push(inimigoB);
                 listaInimigos.push(inimigoB);
             }
 
+            /*
             else if (nivelPlataforma == 3) {
                 inimigoB = new Inimigo_B((window->getSize().x / 5) + 40 * i, window->getSize().y - 300, window, jogador1);
                 inimigoB->setLimiteX(window->getSize().x / 5, (window->getSize().x / 5) + 475.f);
                 listaEntidades.push(inimigoB);
                 listaInimigos.push(inimigoB);
             }
+            //*/
 
             else if (nivelPlataforma == 4) {
-                inimigoB = new Inimigo_B(window->getSize().x - 60 * i, window->getSize().y - 400, window, jogador1);
+                inimigoB = new Inimigo_B(window->getSize().x - 60 * i, window->getSize().y - 425, window, jogador1);
                 inimigoB->setLimiteX(window->getSize().x - 475.f, window->getSize().x);
                 listaEntidades.push(inimigoB);
                 listaInimigos.push(inimigoB);

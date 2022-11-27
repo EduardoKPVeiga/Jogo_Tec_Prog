@@ -31,7 +31,16 @@ void Jogo::executar() {
                 fase1 = new Fase_A(&jogador, &window);
             }
 
-            fase1->displayFase();
+            if (fase1->getFaseAtiva()) {
+                fase1->displayFase();
+            }
+
+            else if (!fase1->getFaseAtiva() && jogador.getVidas() == 0) {
+                option = Options::MENU;
+                jogador.reviver();
+                delete fase1;
+                fase1 = NULL;
+            }
         }
 
         else if(option == Options::LEVEL_B) {
@@ -39,7 +48,16 @@ void Jogo::executar() {
                 fase2 = new Fase_B(&jogador, &window);
             }
 
-            fase2->displayFase();
+            if (fase2->getFaseAtiva()) {
+                fase2->displayFase();
+            }
+
+            else if (!fase2->getFaseAtiva() && jogador.getVidas() == 0) {
+                option = Options::MENU;
+                jogador.reviver();
+                delete fase2;
+                fase2 = NULL;
+            }
         }
         
         window.display();

@@ -70,6 +70,10 @@ namespace Fases {
 			jogador1->draw();
 		bolinha->draw();
 
+		if (!jogador1->getVidas()) {
+			faseAtiva = false;
+		}
+
 		//listaEntidades->drawEntities(window);
 
 		//this->desenhaPlataforma();
@@ -80,5 +84,9 @@ namespace Fases {
 		text.setCharacterSize(24);
 		text.setFillColor(sf::Color::White);
 		window->draw(text);
+	}
+
+	bool Fase::getFaseAtiva() {
+		return faseAtiva;
 	}
 }

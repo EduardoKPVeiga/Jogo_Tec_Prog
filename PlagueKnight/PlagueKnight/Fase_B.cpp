@@ -14,6 +14,7 @@ namespace Fases {
 	void Fase_B::inicializeElementos(Jogador* _jogador1, sf::RenderWindow* _window) {
 		this->window = _window;
 		this->jogador1 = _jogador1;
+		faseAtiva = true;
 
 		//gc = new Gerenciador_Colisoes(&(listaEntidades->LOs), &(listaEntidades->LIs), &(listaEntidades->LPs));
 		gc->setListaEntidades(&listaEntidades);
@@ -45,6 +46,12 @@ namespace Fases {
 			listaEntidades.push(plataforma);
 		}
 		//*/
+
+		srand(time(0));
+		for (int i = 0; i < 20; i++) {
+			Plataforma* plataforma = new Plataforma(((window->getSize().x / 5) + (rand() % 475)), window->getSize().y - 150, window);
+			listaEntidades.push(plataforma);
+		}
 	}
 
 	void Fase_B::inicializaInimigos(Jogador* _jogador1, sf::RenderWindow* _window) {
@@ -65,7 +72,7 @@ namespace Fases {
 			qtdInimigos++;
 		}
 
-		srand(time(0));
+		srand(time(0) + 100);
 		for (int i = 0; i < (3 + (rand() % 3)); i++) {
 			Inimigo_C* inimigoC;
 
