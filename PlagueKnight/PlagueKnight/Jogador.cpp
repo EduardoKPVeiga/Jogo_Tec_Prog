@@ -31,7 +31,7 @@ namespace Jogadores {
                 body.move(sf::Vector2f(velocidade, 0.f));
             }
             else {
-                body.move(sf::Vector2f(-velocidade, 0.f));
+                body.move(sf::Vector2f(velocidade / 4, 0.f));
             }
              direcao = 1;
              direcaoDisparo = 1;
@@ -45,7 +45,7 @@ namespace Jogadores {
                 body.move(sf::Vector2f(-velocidade, 0.f));
             }
             else {
-                body.move(sf::Vector2f(velocidade, 0.f));
+                body.move(sf::Vector2f(-velocidade / 4, 0.f));
             }
             direcao = 0;
             direcaoDisparo = -1;
