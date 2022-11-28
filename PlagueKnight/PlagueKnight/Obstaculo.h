@@ -1,5 +1,9 @@
 #pragma once
+
 #include "Entidade.h"
+#include "Jogador.h"
+
+using namespace Jogadores;
 
 namespace Obstaculos {
     class Obstaculo : public Entidade {
@@ -9,6 +13,7 @@ namespace Obstaculos {
     public:
         Obstaculo();
         ~Obstaculo();
+        virtual void danar() {}
     
     };
 }

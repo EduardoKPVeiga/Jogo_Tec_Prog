@@ -181,10 +181,6 @@ namespace Fases {
     void Fase_A::inicializaProjeteis() {
         bolinha = new Projetil(window);
         jogador1->setProjetil(bolinha);
-        /*
-        listaEntidades.push(bolinha);
-        listaProjeteis.push(bolinha);
-        //*/
 
         // Projeteis de inimigos B
         for (int i = 0; i < qtdInimigosAtiradores; i++) {
@@ -200,7 +196,7 @@ namespace Fases {
     void Fase_A::inicializaArbustoEspinhos() {
         srand(time(0) + 50);
         for (int i = 0; i < (3 + (rand() % 3)); i++) {
-            Arbusto_de_Espinhos* arbusto = new Arbusto_de_Espinhos(window->getSize().x - 475.f + (rand() % 400), window->getSize().y - 425, window);
+            Arbusto_de_Espinhos* arbusto = new Arbusto_de_Espinhos(window->getSize().x - 475.f + (rand() % 400), window->getSize().y - 425, window, jogador1);
 
             listaEntidades.push(arbusto);
         }
