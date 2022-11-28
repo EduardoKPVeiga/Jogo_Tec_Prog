@@ -7,6 +7,7 @@ namespace Jogadores {
         body.setFillColor(sf::Color::Blue);
         gc = NULL;
         danoso = false;
+        pontos = 0;
         //gc = new Gerenciador_Colisoes();
     }
 
@@ -94,5 +95,6 @@ namespace Jogadores {
     void Jogador::reviver() {
         num_vidas = 3;
         vivo = true;
+        pontos = 0;
     }
 }

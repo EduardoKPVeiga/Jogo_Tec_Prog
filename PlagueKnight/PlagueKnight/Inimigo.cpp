@@ -96,6 +96,7 @@ namespace Inimigos {
         }
         else if (num_vidas == 0) {
             vivo = false;
+            jogador->aumentarPontos();
         }
     }
 }

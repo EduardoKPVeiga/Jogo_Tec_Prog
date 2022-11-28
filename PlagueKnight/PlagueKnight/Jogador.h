@@ -12,6 +12,7 @@ namespace Jogadores {
     private:
         bool estah_pulando = false;
         Gerenciador_Colisoes* gc;
+        int pontos;
 
     public:
         Jogador();
@@ -20,6 +21,9 @@ namespace Jogadores {
         void mover();
         void reduzirVida();
         void reviver();
+        int getPontos() { return pontos; }
+        void setPontos(int _pontos) { pontos = _pontos; }
+        void aumentarPontos() { pontos++; }
         //void pular();
     };
 }

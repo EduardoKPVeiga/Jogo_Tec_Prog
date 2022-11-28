@@ -104,7 +104,7 @@ namespace Fases {
 
 		// Show player's life
 		text.setFont(font);
-		text.setString("Vidas: " + std::to_string(jogador1->getVidas()) + " Enemies: " + std::to_string(qtdInimigos));
+		text.setString("Vidas: " + std::to_string(jogador1->getVidas()) + " Inimigos: " + std::to_string(qtdInimigos) + " Pontos: " + std::to_string(jogador1->getPontos()));
 		text.setCharacterSize(24);
 		text.setFillColor(sf::Color::White);
 		window->draw(text);
